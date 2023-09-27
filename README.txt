@@ -4,6 +4,9 @@ python3 -m venv .venv
 #enter virtual environment
 source .venv/bin/activate
 
+for windows virtual env
+.venv/Scripts/activate
+
 #install requirements to the virtual environment
 pip install -r requirements.txt
 
