@@ -1,0 +1,31 @@
+/* header.css */
+html, body {
+    background-color: #523C3C;
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    border-color: #36394A;
+    background-color: #36394A;
+    border: 1px solid black;
+    height: 50px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.text {
+    color: #d9d9d9;
+    gap: auto;
+}
+
+.dot {
+    height: 30px;
+    width: 30px;
+    background-color: #523C3C;
+    border-radius: 50%;
+}

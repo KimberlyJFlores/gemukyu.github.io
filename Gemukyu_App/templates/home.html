@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="header">
+        <span class="dot"></span>
+        <p class='text'>TRENDING</p>
+        <p class='text'>FOR YOU</p>
+        <p class='text'>CATEGORIES</p>
+        <p class='text'>FEATURED</p>
+        <p class='text'>CART</p>
+        <p class='text'>FOR YOU</p>
+    </div>
+
+    <ul>
+        {% for game in games %}
+            <li>Title: {{ game.title }}, Description: {{ game.description }}, Release Date: {{ game.release_date }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
