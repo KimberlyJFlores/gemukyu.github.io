@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Game List</title>
+    <title>Homepage</title>
 </head>
 <body>
     <h1>Games</h1>
     <ul>
         {% for game in games %}
-            <li>Title: {{ game.title }}, Description: {{ game.description }}</li>
+            <li>Title: {{ game.title }}, Description: {{ game.description }} Release Date: {{ game.release_date }}</li>
         {% endfor %}
     </ul>
 </body>

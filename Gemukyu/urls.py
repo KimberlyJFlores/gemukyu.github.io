@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Gemukyu_App import views
 from Gemukyu_App.views import game_list
 
 urlpatterns = [
+    path('', views.home, name='home'),
     path("admin/", admin.site.urls),
     path('games/', game_list, name='game_list')
 ]
