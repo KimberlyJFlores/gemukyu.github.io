@@ -10,3 +10,6 @@ def game_list(request):
     for game in games:
         print(f"Title: {game.title}, Description: {game.description}")
     return render(request, 'template.html', {'games': games})
+
+def home(request):
+    return render(request,'home.html')
