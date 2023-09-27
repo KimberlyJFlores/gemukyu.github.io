@@ -17,8 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Gemukyu_App.views import game_list
-
+from home.views import home
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('games/', game_list, name='game_list')
+    path('games/', game_list, name='game_list'),
+    path('',home,name="home")
 ]
