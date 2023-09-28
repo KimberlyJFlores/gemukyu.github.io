@@ -6,9 +6,7 @@ html, body {
 }
 
 .header {
-    border-color: #36394A;
-    background-color: #36394A;
-    border: 1px solid black;
+    background-color: #24282f;
     height: 50px;
     width: auto;
     display: flex;
