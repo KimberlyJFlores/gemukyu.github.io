@@ -14,11 +14,12 @@
         <p class='text'>CART</p>
         <p class='text'>FOR YOU</p>
     </div>
-
-    <ul>
-        {% for game in games %}
-            <li>Title: {{ game.title }}, Description: {{ game.description }}, Release Date: {{ game.release_date }}</li>
-        {% endfor %}
-    </ul>
+    <div class="list">
+        <ul>
+            {% for game in games %}
+                <li>Title: {{ game.title }}, Description: {{ game.description }}, Release Date: {{ game.release_date }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

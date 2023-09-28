@@ -1,6 +1,7 @@
 /* header.css */
 html, body {
     background-color: #523C3C;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0;
     margin: 0;
 }
@@ -28,4 +29,8 @@ html, body {
     width: 30px;
     background-color: #523C3C;
     border-radius: 50%;
+}
+
+.list{
+    color: #d9d9d9;
 }
