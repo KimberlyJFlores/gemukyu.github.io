@@ -4,8 +4,17 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0;
     margin: 0;
+    font-family: 'Arial';
 }
-
+textarea{
+    background-color: #36394a;
+    height: 50%;
+    border:none;
+    resize: none;
+    -webkit-text-fill-color: white;
+    text-align: center;
+    outline: none;
+}
 .header {
     background-color: #24282f;
     height: 50px;

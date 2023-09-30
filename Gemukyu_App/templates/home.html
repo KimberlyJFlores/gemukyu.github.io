@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {% include "header.html" %}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-</head>
-<body>
-    <div class="header">
-        <span class="dot"></span>
-        <p class='text'>TRENDING</p>
-        <p class='text'>FOR YOU</p>
-        <p class='text'>CATEGORIES</p>
-        <p class='text'>FEATURED</p>
-        <p class='text'>CART</p>
-        <p class='text'>FOR YOU</p>
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+    <div class="gamebanner">
+        Banner of Featured Game
+    </div>
+    <text>TRENDING</text>
+    <line></line>
+    <div class="gamescroller">
+        <div class="gamecontainer"></div>
+        <div class="gamecontainer"></div>
+        <div class="gamecontainer"></div>
+        <div class="gamecontainer"></div>
+        <div class="gamecontainer"></div>
+    </div>
+    <text>FOR YOU</text>
+    <line></line>
+    <div class="gamescroller">
+        <div class="gamecontainer"></div>
+        <div class="gamecontainer"></div>
+        <div class="gamecontainer"></div>
+        <div class="gamecontainer"></div>
+        <div class="gamecontainer"></div>
+    </div>
+    <text>SALE</text>
+    <line></line>
+    <div class="gamescroller">
+        <div class="gamecontainer"></div>
+        <div class="gamecontainer"></div>
+        <div class="gamecontainer"></div>
+        <div class="gamecontainer"></div>
+        <div class="gamecontainer"></div>
     </div>
     <div class="list">
         <ul>
