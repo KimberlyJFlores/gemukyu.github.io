@@ -26,7 +26,9 @@ SECRET_KEY = "django-insecure-8rzz2=_7xwvc*hjfvt+q(28-@wyhpj3hxqkii#48$nu^g%wzol
 DEBUG = False
 
 ALLOWED_HOSTS = ['*', 
-                 'https://www.kimberlyjflores.github.io/Gemukyu/']
+                 'https://www.kimberlyjflores.github.io/Gemukyu/',
+                 'gemukyu.com',
+                 'www.gemukyu.com']
 
 
 # Application definition
