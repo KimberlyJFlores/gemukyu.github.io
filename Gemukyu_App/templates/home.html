@@ -34,12 +34,12 @@
         <div class="gamecontainer"></div>
         <div class="gamecontainer"></div>
     </div>
-    <div class="list">
-        <ul>
-            {% for game in games %}
-                <li>Title: {{ game.title }}, Description: {{ game.description }}, Release Date: {{ game.release_date }}</li>
-            {% endfor %}
-        </ul>
-    </div>
+
+    <ul>
+        {% for game in games %}
+            <li>Title: {{ game.title }}, Description: {{ game.description }}, Release Date: {{ game.release_date }}</li>
+        {% endfor %}
+    </ul>
 </body>
+{% include "footer.html" %}
 </html>

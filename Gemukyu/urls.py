@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from Gemukyu_App import views
 from Gemukyu_App.views import game_list, home
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('', views.home, name='home'),
     path("admin/", admin.site.urls),
-    path('games/', game_list, name='game_list')
+    path('games/', game_list, name='game_list'),
     ]
+urlpatterns += staticfiles_urlpatterns()
