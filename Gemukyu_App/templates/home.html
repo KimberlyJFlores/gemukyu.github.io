@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {% include "header.html" %}
+        {% include "header.html" %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
     <div class="gamebanner">
@@ -10,11 +10,9 @@
     <text>TRENDING</text>
     <line></line>
     <div class="gamescroller">
-        <div class="gamecontainer"></div>
-        <div class="gamecontainer"></div>
-        <div class="gamecontainer"></div>
-        <div class="gamecontainer"></div>
-        <div class="gamecontainer"></div>
+        {% for game in games %}
+        <div class="gamecontainer">Title: {{ game.title }}, Description: {{ game.description }}, Release Date: {{ game.release_date }}</div>
+        {% endfor %}
     </div>
     <text>FOR YOU</text>
     <line></line>

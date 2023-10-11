@@ -27,6 +27,7 @@ html, body {
     overflow-x:auto;
     overflow-y: hidden;
     flex-wrap: nowrap;
+    overflow-x: hidden;
 }
 .gamecontainer{
     background-color: #24282f;
