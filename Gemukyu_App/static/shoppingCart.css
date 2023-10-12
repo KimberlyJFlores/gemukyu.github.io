@@ -1,0 +1,203 @@
+/* Shopping Cart External CSS stylesheet */
+
+/* Background */
+html, body {
+    background: linear-gradient(0deg, rgba(54, 57, 74, 1) 0%, rgba(82, 60, 60, 1) 50%);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Breadcrumbs */
+  .breadcrumb {
+    font-weight: bold;
+    color: rgb(59, 133, 218);
+    margin-top: 10px; 
+    margin-left: 50px;
+    cursor: pointer;
+  }
+  
+  /* Breadcrumbs Color*/
+  .breadcrumb a, b {
+    text-decoration: none;
+    color: rgb(59, 133, 218); /* Brighter color for the current view */
+  }
+  
+  /* Breadcrumbs Hover Underline*/
+  .breadcrumb a, b:hover {
+    text-decoration: underline;
+  }
+  
+  /* Breadcrumbs Current*/
+  .breadcrumb a, b.current {
+    color: rgb(107, 134, 165); /* Default link view */
+  }
+  
+  /* Title */
+  .title {
+    color: white;
+    font-weight: bold;
+    font-size: 36px; 
+    margin-top: 10px; /* Spacing */
+    margin-left: 50px;
+    margin-bottom: 10px;
+  }
+  
+  /* Line */
+  .line {
+    border-top: 1px solid #575d75; /* Line color*/
+  }
+  
+  /* Shopping Cart Box */
+  .cart-box {
+    border-radius: 5px 5px 0 0; /* Rounds only the top corners */
+    background-color: #36394a;
+    height: 400px;
+    padding: 20px;
+    width: 90%; 
+    margin: 0 auto; /* Centers the box horizontally */
+    overflow-y: auto; /* Adds a scrollbar if needed */
+    scrollbar-color: grey; /* Scrollbar color */
+    margin-top: 20px; /* Spacing */
+    
+  }
+  
+  /* Cart Item */
+  .cart-item {
+    font-size: x-large;
+    font-weight: bold;
+    padding-left: 475px;
+    color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-color: #24282f;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+   
+  }
+  
+  /* Remove Item Button */
+  .remove-button {
+    /* Need the remove button (hollow X Icon) */
+  }
+  
+  /* Total Box */
+  .total-box {
+    position: relative;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(0, 0, 0, 0.2), 0 5px 0 rgba(0, 0, 0, 0.2); /* Adds shadows to left, right, and bottom */
+    border-radius: 0 0 5px 5px; /* Rounds only the bottom corners */
+    background-color: #36394a;
+    height: 375px;
+    padding: 20px;
+    width: 90%; 
+    margin: 0 auto; /* Centers the box horizontally */
+    margin-top: -5px; /* Spacing */
+  }
+
+  /* Estimated Total Item */
+  .total-item {
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Adds shadows for depth */
+    background-color: #24282f;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
+    height: 150px;
+    display:flex;
+    justify-content: space-between; /* Defines how the browser distributes space between and around content items */
+  }
+  
+  /* Estimate Total Discription */
+  .top-left {
+    position: absolute;
+    font-size:x-large;
+    top: 10px;
+    left: 0;
+    padding: 20px;
+  }
+  
+  /* Total Dollar Amount */
+  .top-right {
+    position: absolute;
+    font-size:x-large;
+    top: 10px;
+    right: 0;
+    padding: 20px;
+  }
+  
+  /* Purchase Gift Button */
+  .purchase-gift-button {
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Adds shadows for depth */
+    bottom: 20px;
+    right: 20px;
+    padding: 20px 40px;
+    background-color: #2B4f31; /* green background, white text */
+    color: white;
+    font-size: 20px; 
+    font-weight: bold;
+    font-display: center;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Purchase Self Button */
+  .purchase-self-button {
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Adds shadows for depth */
+    bottom: 20px;
+    right: 325px;
+    padding: 20px 40px;
+    background-color: #2B4f31; /* green background, white text */
+    color: white;
+    font-size: 20px; 
+    font-weight: bold;
+    font-display: center;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Sales Tax Notice */
+  .sales-tax-notice {
+    color: yellow;
+    position: absolute;
+    font-weight: lighter;
+    bottom: -45px;
+    left: 0px;
+    padding: 10px;
+  }
+  
+  /* Continue Shopping Button */
+  .continue-shopping-button {
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Adds shadows for depth */
+    bottom: -150px;
+    left: 20px;
+    padding: 20px 40px;
+    background-color: #344177; /* blue background, white text */
+    color: white;
+    font-size: 20px; 
+    font-weight: bold;
+    font-display: center;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Remove All Link */
+  .remove-all-link {
+    text-decoration: underline;
+    color: #344177;
+    position: absolute;
+    font-size:x-large;
+    bottom: -150px;
+    right: 50px;
+    padding: 20px;
+  }
+  
