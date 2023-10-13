@@ -68,10 +68,10 @@ html, body {
     font-weight: bold;
     padding-left: 475px;
     color: white;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Adds shadows for depth */
     border-radius: 5px;
     background-color: #24282f;
-    height: 75px;
+    height: 125px;
     display: flex;
     align-items: center;
     margin-bottom: 25px;
