@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path("admin/", admin.site.urls),
     path('games/', game_list, name='game_list'),
+    path('game_page/', views.game_page, name='game_page'),
     ]
 urlpatterns += staticfiles_urlpatterns()

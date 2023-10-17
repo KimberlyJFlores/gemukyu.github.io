@@ -16,3 +16,9 @@ def home(request):
     for game in games:
         print(f"Title: {game.title}, Description: {game.description}, Publisher: {game.release_date}")
     return render(request,'home.html', {'games': games})
+
+def game_page(request):
+    games = Games.objects.all()
+    for game in games:
+        print(f"Title: {game.title}, Description: {game.description}, Publisher: {game.release_date}")
+    return render(request,'game_page.html', {'games': games})

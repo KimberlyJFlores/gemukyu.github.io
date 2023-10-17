@@ -1,0 +1,16 @@
+.gamethumbnailcontainer{
+    background-color: #24282f;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 0 0 auto;
+    margin-top: 2px;
+    justify-content: center;
+    margin-right: 6px;
+    margin-left: 6px;
+    align-items: center;
+    width: auto;
+    height: 500px;
+    background-color: #24282f;
+}
