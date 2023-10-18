@@ -1,16 +1,81 @@
 .gamethumbnailcontainer{
     background-color: #24282f;
-    width: auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px, 10px, 10px, black;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     flex: 0 0 auto;
-    margin-top: 2px;
-    justify-content: center;
-    margin-right: 6px;
-    margin-left: 6px;
-    align-items: center;
-    width: auto;
+    margin-top: px;
     height: 500px;
+    width: auto;
+    padding-left: 15px;
+    margin-left: 1%;
+    margin-right: 1%;
+    justify-content: center;
+    align-items: center;
+}
+
+.gamethumbnail{
+    background-color: black;
+    display: flex;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+    justify-content: center;
+}
+
+.gamedescriptioncontainer{
     background-color: #24282f;
+    margin-top: 15px;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 700px;
+    display:flex;
+    width: auto;
+    margin-left: 1%;
+    margin-right: 1%;
+    justify-content: left;
+    align-items: left;
+}
+
+.gamedescription {
+    background-color: #36394A;
+    display: flex;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    height: 700px;
+    width: 110%;
+    justify-content: left;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.addtocartbutton {
+    background-color: #2B4F31;
+    border-radius: 5px;
+    font-size: 15px;
+    width:300px;
+    height:50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    margin-top: 5%;
+    margin-left: 75%;
+}
+
+.tablenospace {
+    width:80%;
+}
+
+div {
+    box-shadow: 0px 1px 3px 0px black;
 }
