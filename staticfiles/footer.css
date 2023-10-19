@@ -1,0 +1,18 @@
+.footer{
+    bottom: auto;
+    background-color: #111217;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    padding: 0 40px;
+    position: fixed;
+    bottom: 0;
+    left:0;
+}
+
+.text{
+    justify-content: left;
+    padding-left: 80px;
+}
