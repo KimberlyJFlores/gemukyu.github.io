@@ -26,11 +26,9 @@ def game_page(request):
         print(f"Title: {game.title}, Description: {game.description}, Publisher: {game.release_date}")
     return render(request,'game_page.html', {'games': games})
 
-#TODO Needs user_id and game_id, maybe cart_id but maybe do cart_id = user_id?
+#TODO Needs user_id and game_id, cart_id is autofield
 
 def add_to_cart(request):
-    #game = Games.objects.get(game_id)
-    #gameId = request.POST[1]
-    cartItem = Cart(game_id=1, user_id=1, quantity=1, cart_id=1)
+    cartItem = Cart(game_id=2, user_id=1, quantity=1)
     cartItem.save()
     return HttpResponseRedirect(reverse('game_page'))
