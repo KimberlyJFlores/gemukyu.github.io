@@ -108,4 +108,17 @@ select {
     flex: 0 0 auto;
     flex-wrap: wrap;
     align-items: center;
+    
 }
+.gamecard:active{
+    border-style: outset;
+    border: none;
+    cursor: pointer;
+}
+button {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin: auto;
+    display: block;
+  }
