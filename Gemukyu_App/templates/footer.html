@@ -1,19 +1,26 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
-    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'footer.css' %}">
 </head>
 <body>
     <footer class="footer">
-        <p class="text">
-            ABOUT US
-        </p>
-        <p class="text">
-            SUPPORT
-        </p>
-        <p class="text">
-            CAREERS
-        </p>
-    </footer>
+        <div class="top-line"></div>
+        <div class="container" style="margin-left: 100px;margin-right: 50px;">
+            <div class="footer-links">
+                <a class="footer a" href="#">ABOUT US</a>
+                <a class="footer a" href="#">SUPPORT</a>
+                <a class="footer a" href="#">CAREER</a>
+            </div>
+            <div class="footer-icons">
+                <a class="social-icon" href="https://www.facebook.com"><i class="fab fa-facebook" style="color: #2c67ce;"></i></a>
+                <a class="social-icon" href="https://www.twitter.com"><i class="fab fa-twitter" style="color: #5c98ff;"></i></a>
+                <a class="social-icon" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="bottom-line"></div>
+        <p class="footer p" style="margin-bottom: 0px;margin-top: 0px;padding-top: 0px;padding-bottom: 0px;">© GIMUKYU 2023 ALL RIGHTS RESERVED.</p>    </footer>
+</body>
 </html>
