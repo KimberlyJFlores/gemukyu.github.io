@@ -1,20 +1,32 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    </head>
+    <title>GEMUKYU</title>
+    <link rel="tab icon" type="image/png" href="{% static 'images/favicon.png' %}" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'header.css' %}">
+</head>
 <body>
     <div class="header">
-        <span class="dot"></span>
-        <p class='text'>TRENDING</p>
-        <p class='text'>FOR YOU</p>
-        <p class='text'>CATEGORIES</p>
-        <p class='text'>FEATURED</p>
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <textarea >
-        </textarea>
-        <p class='text'>CART</p>
-        <p class='text'>LOGIN</p>
+        <a href="http://localhost:8000" style="height: 100px;width: 40px; padding-left: 30px;padding-right: 30px;padding-top: 5px;padding-bottom: 5px;">
+            <div class="logo" style="height: 100px;">
+                <img src="/static/images/GimukyuHomeIcon.png" alt="No Logo, Check the code!" style="height: 100px;">
+            </div>
+        </a>
+        <a href="#">TRENDING</a>
+        <a href="#">FOR YOU</a>
+        <a href="#">CATEGORIES</a>
+        <a href="#">FEATURED</a>
+        <div class="search-container">
+            <form class="no-submit">
+                <input class="no-submit" type="search" placeholder="Search Your Next Addiction :D" id="searchInput" method="GET">
+            </form>
+        </div>
+        <a href="shoppingCart">CART</a>
+        <a href="#">LOG IN</a>
     </div>
+    <div class="line"></div>
+</body>
 </html>
