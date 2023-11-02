@@ -25,5 +25,8 @@ urlpatterns = [
     path('games/', game_list, name='game_list'),
     path('game_page/', views.game_page, name='game_page'),
     path('game_page/add_to_cart/', views.add_to_cart, name='add_to_cart'),
+    path("register", views.register, name="register"),
+    path("login_user", views.login_user, name="login_user"),
+    path("logout_user", views.logout_user, name="logout_user"),
     ]
 urlpatterns += staticfiles_urlpatterns()

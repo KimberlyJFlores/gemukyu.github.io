@@ -49,9 +49,11 @@ class Reviews(models.Model):
 
 class Users(models.Model):
     user_id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
-    password_hash = models.CharField(max_length=255)
+    username = models.CharField(max_length=30)
+    email = models.CharField(max_length=40)
+    password = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
     date_registered = models.DateTimeField()
     last_login = models.DateTimeField()
 
