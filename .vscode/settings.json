@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/91a2e975-9c45-49bc-9a5d-4173a13b8957/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/gemukyu-host",
+    "appService.deploySubpath": "."
+}

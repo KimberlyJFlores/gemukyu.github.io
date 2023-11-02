@@ -1,0 +1,43 @@
+/* header.css */
+html, body {
+    background-color: #523C3C;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: 'Arial';
+}
+textarea{
+    background-color: #36394a;
+    height: 50%;
+    border:none;
+    resize: none;
+    -webkit-text-fill-color: white;
+    text-align: center;
+    outline: none;
+}
+.header {
+    background-color: #24282f;
+    height: 50px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.text {
+    color: #d9d9d9;
+    gap: auto;
+}
+
+.dot {
+    height: 30px;
+    width: 30px;
+    background-color: #523C3C;
+    border-radius: 50%;
+}
+
+.list{
+    color: #d9d9d9;
+}
