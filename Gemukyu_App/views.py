@@ -20,6 +20,12 @@ def home(request):
         print(f"Title: {game.title}, Description: {game.description}, Publisher: {game.release_date}")
     return render(request,'home.html', {'games': games})
 
+def shoppingCart(request):
+    games = Games.objects.all()
+    for game in games:
+        print(f"Title: {game.title}, Description: {game.description}, Publisher: {game.release_date}")
+    return render(request,'shoppingCart.html', {'games': games})
+
 def game_page(request):
     games = Games.objects.all()
     for game in games:
@@ -32,3 +38,4 @@ def add_to_cart(request):
     cartItem = Cart(game_id=2, user_id=1, quantity=1)
     cartItem.save()
     return HttpResponseRedirect(reverse('game_page'))
+

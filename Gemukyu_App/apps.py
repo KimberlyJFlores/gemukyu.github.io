@@ -8,3 +8,7 @@ class GemukyuAppConfig(AppConfig):
 class HomeConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "home"
+
+class ShoppingCartConfig(AppConfig):
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "shoppingCart"
