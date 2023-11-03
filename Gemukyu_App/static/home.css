@@ -58,10 +58,11 @@ line{
 }
 .bottomcontainer{
     width: auto;
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     flex: 0 0 auto;
     margin-top: 10px;
+    margin-bottom: 30px;
     padding-top:5px;
     width: auto;
     height: 500px;
@@ -95,6 +96,7 @@ select {
     background: linear-gradient(0deg, rgb(17, 18, 23) 0%, rgb(54, 57, 74) 50%);
     justify-content: center;
     overflow-y: scroll;
+    display: block;
 }
 .gamecard{
     background-color: #24282f;

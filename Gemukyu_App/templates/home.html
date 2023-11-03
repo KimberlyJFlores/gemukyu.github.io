@@ -2,6 +2,8 @@
 <html>
 <head>
         {% include "header.html" %}
+</head>
+<body>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
     <div class="gamebanner">
@@ -53,11 +55,11 @@
             {% endfor %}
         </div>
     </div>
+    {% include "footer.html" %}
 <script>
     function log(){
         console.log("Works");
     }
 </script>
 </body>
-{% include "footer.html" %}
 </html>

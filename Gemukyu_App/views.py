@@ -34,6 +34,9 @@ def game_page(request):
         print(f"Title: {game.title}, Description: {game.description}, Publisher: {game.release_date}")
     return render(request,'game_page.html', {'games': games})
 
+def account_page(request):
+    return render(request,'account.html');
+
 #TODO Needs user_id and game_id, cart_id is autofield
 
 def add_to_cart(request):
