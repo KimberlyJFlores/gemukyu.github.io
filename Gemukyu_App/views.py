@@ -32,3 +32,9 @@ def add_to_cart(request):
     cartItem = Cart(game_id=2, user_id=1, quantity=1)
     cartItem.save()
     return HttpResponseRedirect(reverse('game_page'))
+
+def order_confirmation(request):
+    return render(request, 'order_confirmation.html')
+
+def order_on_cart(request):
+    return render(request, 'order_on_cart.html')

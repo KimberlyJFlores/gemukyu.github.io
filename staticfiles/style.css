@@ -1,6 +1,21 @@
 /* header.css */
-html, body {
-    background-color: #523C3C;
+html {
+    height: 100%;
+} 
+
+body {
+    background: rgb(38, 39, 48);
+    background: -moz-linear-gradient(0deg, rgba(38, 39, 48, 1) 30%, rgba(80, 58, 59, 1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(38, 39, 48, 1) 30%, rgba(80, 58, 59, 1) 100%);
+    background: linear-gradient(0deg, rgba(38, 39, 48, 1) 30%, rgba(80, 58, 59, 1) 100%);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    /* This will keep the background fixed during scrolling */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#262730", endColorstr="#503a3b", GradientType=1);
+    color: #fff;
+    min-height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0;
     margin: 0;
@@ -40,4 +55,202 @@ textarea{
 
 .list{
     color: #d9d9d9;
+}
+
+/* CUSTOM 10/31 */
+
+.footer {
+    margin: 20px auto 40px;
+}
+
+.custom-1 {
+    width: 100%;
+    background-color: #363949;
+    border: 1px solid #303341;
+    padding: 20px;
+}
+
+.bg-dark {
+    background-color: #24262f !important;
+    margin: 0 0px !important;
+}
+
+.game-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #333;
+}
+
+.game-thumbnail {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.game-details div {
+    margin-bottom: 5px;
+}
+
+.row.bg-dark.t-3 {
+    padding: 1rem 0 !important;
+}
+
+.cart-items-detail {
+    padding: 0px 0px 8px;
+    color: #505157;
+}
+
+.cart-items-detail-title {
+    padding: 0px 0px 8px;
+    color: #80828c;
+}
+
+.cart-items-detail-title.title {
+    color: #b3b5bf;
+    font-weight: bold;
+}
+
+.cart-items-detail-title.price {
+    padding: 0px 0px 8px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.col-md-2.unit-price,
+.col-md-1.quantity {
+    color: #80828c;
+}
+
+div.col-md-3.img-holder {}
+
+.sticky-top {
+    padding: 15px 0 !important;
+}
+
+img.cart-img {
+    width: 100%;
+    border: 1px solid #191a20;
+}
+
+img.site-logo {
+    width: 100px;
+}
+
+.text-right {
+    padding: 0 30px;
+}
+
+.cart-label {
+    color: #b3b5bf;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-amnt {
+    color: #f4f4f4;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-total {
+    color: #b3b5bf;
+    padding: 15px 0 0;
+    font-size: 1.75rem;
+}
+
+.cart-final {
+    color: #f4f4f4;
+    padding: 15px 0 0;
+    font-size: 1.75rem;
+}
+
+.header-title {
+    color: #80828c;
+    font-weight: bold;
+}
+
+.copyright {
+    color: #505157;
+}
+
+.footer.mt-5.footer {
+    background-color: #191a20;
+    padding: 60px 0;
+    border-top: 1px solid #2b2d3a;
+}
+
+.form {
+    position: relative;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #363949;
+    border: 1px solid #4a4c5b;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #4a4c5b;
+    border: 1px solid #4a4c5b;
+}
+
+.form .fa-search {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #cccdcf;
+}
+
+.form span {
+    position: absolute;
+    right: 25px;
+    top: 5px;
+    padding: 2px;
+    border-left: 1px solid #d1d5db;
+}
+
+.left-pan {
+    padding-left: 7px;
+}
+
+.left-pan i {
+    padding-left: 10px;
+}
+
+.form-input {
+    height: 35px;
+    width: 98%;
+    text-indent: 25px;
+    border-radius: 5px;
+    background-color: #484951;
+    border: none;
+    color: #cccdcf;
+}
+
+.form-input:focus {
+    background-color: #5a5b62;
+    box-shadow: none;
+    border: none;
+    color: #cccdcf;
+}
+
+div.col-md-12.search-form {
+    margin: 0 20px 0 0 !important;
+}
+
+div.row.bg-dark.t-3 {
+    border-bottom: 1px solid #363949;
+}
+.breadcrumb{
+    color: #b3b5bf !important;
+    background-color:#363949;
+}
+div.text-left.mt-6.breadcrumb a.breadcrumb-link{
+    color: #80828c !important;
+    display: inline-block;
+    padding: 0 12px 0 0;
 }

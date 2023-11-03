@@ -2,18 +2,26 @@
 <html>
 <head>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'footer.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'footer.css' %}"> -->
 </head>
 <body>
-    <footer class="footer">
-        <p class="text">
-            ABOUT US
-        </p>
-        <p class="text">
-            SUPPORT
-        </p>
-        <p class="text">
-            CAREERS
-        </p>
+    <div class="text-center mt-5">
+        <a href="#" class="btn btn-primary">Back To Home</a>
+    </div>
+    <footer class="mt-5 footer">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <div class="copyright">&copy; GEMUKYU GAMING 2023. All rights reserved.</div>
+                <div>
+                    <a href="#" class="mr-3">About Us</a>
+                    <a href="#" class="mr-3">Support</a>
+                    <a href="#" class="mr-3">Careers</a>
+                </div>
+            </div>
+        </div>
     </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </html>

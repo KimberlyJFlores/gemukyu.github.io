@@ -25,5 +25,7 @@ urlpatterns = [
     path('games/', game_list, name='game_list'),
     path('game_page/', views.game_page, name='game_page'),
     path('game_page/add_to_cart/', views.add_to_cart, name='add_to_cart'),
+    path('order_confirmation.html/', views.order_confirmation, name='order_confirmation'),
+    path('order_on_cart.html/', views.order_on_cart, name='order_on_cart'),
     ]
 urlpatterns += staticfiles_urlpatterns()

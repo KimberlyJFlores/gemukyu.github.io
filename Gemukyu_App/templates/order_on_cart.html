@@ -1,0 +1,281 @@
+{% include "header.html" %} {% load static %}
+
+<body class="bg-dark text-light">
+
+    <div class="container mt-5">
+        <div class="text-left mt-6 breadcrumb">
+            <a class="breadcrum-link" href="#">Home</a> > Your Shopping Cart
+        </div>
+        <div class="text-left mt-5">
+            <h2>SHOPPING CART</h2>
+        </div>
+
+        <div class="container-fluid custom-1">
+
+            <!-- Game 1: The Last of Us Part II -->
+            <div class="row bg-dark t-3">
+                <div class="col-md-3 img-holder">
+                    <img class="cart-img" alt="The Last of Us Part II Image" src="{% static 'img_1.jpg' %}" />
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Title</div>
+                        <div class="col-md-9 cart-items-detail-title title">The Last of Us Part II</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Genre</div>
+                        <div class="col-md-9 cart-items-detail-title">Action-adventure</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Publisher</div>
+                        <div class="col-md-9 cart-items-detail-title">Naughty Dog</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Date</div>
+                        <div class="col-md-9 cart-items-detail-title">JUNE 19, 2020</div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <select class="form-select" aria-label="Select">
+                        <option selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">4</option>
+                        <option value="3">5</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <a href="#">Remove</a>
+                </div>
+                <div class="col-md-1 cart-items-detail-title price">
+                    $59.99
+                </div>
+            </div>
+
+            <!-- Game 2: Ghost of Tsushima -->
+            <div class="row bg-dark t-3">
+                <div class="col-md-3 img-holder">
+                    <img class="cart-img" alt="Ghost of Tsushima Image" src="{% static 'img_2.jpg' %}" />
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Title</div>
+                        <div class="col-md-9 cart-items-detail-title title">Ghost of Tsushima</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Genre</div>
+                        <div class="col-md-9 cart-items-detail-title">Action-adventure</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Publisher</div>
+                        <div class="col-md-9 cart-items-detail-title">Sucker Punch Productions</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Date</div>
+                        <div class="col-md-9 cart-items-detail-title">JULY 17, 2020</div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <select class="form-select" aria-label="Select">
+                        <option selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">4</option>
+                        <option value="3">5</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <a href="#">Remove</a>
+                </div>
+                <div class="col-md-1 cart-items-detail-title price">
+                    $49.99
+                </div>
+            </div>
+
+            <!-- Game 3: Cyberpunk 2077 -->
+            <div class="row bg-dark t-3">
+                <div class="col-md-3 img-holder">
+                    <img class="cart-img" alt="Cyberpunk 2077 Image" src="{% static 'img_3.jpg' %}" />
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Title</div>
+                        <div class="col-md-9 cart-items-detail-title title">Cyberpunk 2077</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Genre</div>
+                        <div class="col-md-9 cart-items-detail-title">Action role-playing</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Publisher</div>
+                        <div class="col-md-9 cart-items-detail-title">CD Projekt</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Date</div>
+                        <div class="col-md-9 cart-items-detail-title">DECEMBER 10, 2020</div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <select class="form-select" aria-label="Select">
+                        <option selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">4</option>
+                        <option value="3">5</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <a href="#">Remove</a>
+                </div>
+                <div class="col-md-1 cart-items-detail-title price">
+                    $70.99
+                </div>
+            </div>
+
+            <!-- Game 4: Animal Crossing: New Horizons -->
+            <div class="row bg-dark t-3">
+                <div class="col-md-3 img-holder">
+                    <img class="cart-img" alt="Animal Crossing: New Horizons Image" src="{% static 'img_4.jpg' %}" />
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Title</div>
+                        <div class="col-md-9 cart-items-detail-title title">Animal Crossing: New Horizons</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Genre</div>
+                        <div class="col-md-9 cart-items-detail-title">Social simulation</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Publisher</div>
+                        <div class="col-md-9 cart-items-detail-title">Nintendo</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Date</div>
+                        <div class="col-md-9 cart-items-detail-title">MARCH 20, 2020</div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <select class="form-select" aria-label="Select">
+                        <option selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">4</option>
+                        <option value="3">5</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <a href="#">Remove</a>
+                </div>
+                <div class="col-md-1 cart-items-detail-title price">
+                    $49.99
+                </div>
+            </div>
+
+            <!-- Game 5: Hades -->
+            <div class="row bg-dark t-3">
+                <div class="col-md-3 img-holder">
+                    <img class="cart-img" alt="Hades Image" src="{% static 'img_5.jpg' %}" />
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Title</div>
+                        <div class="col-md-9 cart-items-detail-title title">Hades</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Genre</div>
+                        <div class="col-md-9 cart-items-detail-title">Action role-playing</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Publisher</div>
+                        <div class="col-md-9 cart-items-detail-title">Supergiant Games</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Date</div>
+                        <div class="col-md-9 cart-items-detail-title">SEPTEMBER 17, 2020</div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <select class="form-select" aria-label="Select">
+                        <option selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">4</option>
+                        <option value="3">5</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <a href="#">Remove</a>
+                </div>
+                <div class="col-md-1 cart-items-detail-title price">
+                    $18.99
+                </div>
+            </div>
+            <div class="text-right mt-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-12 cart-label">
+                                    Subtotal (5 Items):
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 cart-label">
+                                    Shipping:
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 cart-label">
+                                    Estimated Tax:
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 cart-total">
+                                    Estimated Total:
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="row">
+                                <div class="col-md-12 cart-amnt">
+                                    $249.95
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 cart-amnt">
+                                    Free
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 cart-amnt">
+                                    $0.00
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 cart-final">
+                                    $249.95
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+
+</html>
+
+<!-- #f7f7f8;
+    --gray-100: #ececf1;
+    --gray-200: #d9d9e3;
+    --gray-300: #c5c5d2;
+    --gray-400: #acacbe;
+    --gray-500: #8e8ea0;
+    --gray-600: #565869;
+    --gray-700: #40414f;
+    --gray-800: #343541;
+    --gray-900: #202123;
+    --gray-950: #050509; -->
