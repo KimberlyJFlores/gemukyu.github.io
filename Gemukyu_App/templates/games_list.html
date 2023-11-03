@@ -1,0 +1,54 @@
+{% include "header.html" %} {% load static %}
+
+<body class="bg-dark text-light">
+
+    <div class="container mt-5">
+
+        <div class="text-center mt-5">
+            <h2>Available Games</h2>
+            <p>Select the games you want and add them to your cart!</p>
+        </div>
+
+        <div class="container-fluid custom-1">
+
+            <!-- Games Loop -->
+            {% for game in games %}
+            <div class="row bg-dark t-3">
+                <div class="col-md-3 img-holder">
+                    <img class="cart-img" alt="{{ game.title }}" src="{% static game.image_path %}" />
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Title</div>
+                        <div class="col-md-9 cart-items-detail-title title">{{ game.title }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Genre</div>
+                        <div class="col-md-9 cart-items-detail-title">{{ game.genre }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Publisher</div>
+                        <div class="col-md-9 cart-items-detail-title">{{ game.publisher }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 cart-items-detail">Date</div>
+                        <div class="col-md-9 cart-items-detail-title">{{ game.release_date }}</div>
+                    </div>
+                </div>
+                <div class="col-md-1 unit-price">
+                    ${{ game.price }}
+                </div>
+                <div class="col-md-3 text-center">
+                    <a href="{% url 'add_to_cart' game.id %}" class="btn btn-success">Add to Cart</a>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- Games Loop End -->
+
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+</body>
+
+</html>

@@ -103,7 +103,7 @@ textarea{
 }
 
 .cart-items-detail-title {
-    padding: 0px 0px 8px;
+    /* padding: 0px 0px 8px; */
     color: #80828c;
 }
 
@@ -113,12 +113,13 @@ textarea{
 }
 
 .cart-items-detail-title.price {
-    padding: 0px 0px 8px;
+    /* padding: 0px 0px 8px; */
     font-weight: bold;
     color: #fff;
+    text-align: right;
 }
 
-.col-md-2.unit-price,
+.col-md-1.unit-price,
 .col-md-1.quantity {
     color: #80828c;
 }
@@ -170,6 +171,13 @@ img.site-logo {
     color: #80828c;
     font-weight: bold;
 }
+
+div.col-md-2.header-title {
+    color: #80828c;
+    font-weight: bold;
+    text-align: right;
+}
+
 
 .copyright {
     color: #505157;
@@ -254,4 +262,83 @@ div.text-left.mt-6.breadcrumb a.breadcrumb-link{
     color: #80828c !important;
     display: inline-block;
     padding: 0 12px 0 0;
+}
+
+select {
+
+    /* styling */
+    background-color: #484951;
+    border: none;
+    color: #cccdcf;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.2em 2.2em 0.2em .8em;
+  
+    /* reset */
+  
+    margin: 0;      
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  select.box {
+    background-image:
+      linear-gradient(45deg, transparent 50%, #cccdcf 50%),
+      linear-gradient(135deg, #cccdcf 50%, transparent 50%),
+      linear-gradient(to right, #484951, #484951);
+    background-position:
+      calc(100% - 20px) calc(1em + -2px),
+      calc(100% - 15px) calc(1em + -2px),
+      calc(100% - 2.5em) 0.5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      0px 0em;
+    background-repeat: no-repeat;
+  }
+  
+  select.box:focus {
+    background-image:
+      linear-gradient(45deg, #cccdcf 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, #cccdcf 50%),
+      linear-gradient(to right, #484951, #484951);
+    background-position:
+      calc(100% - 15px) .8em,
+      calc(100% - 20px) .8em,
+      calc(100% - 2.5em) 0.5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      0px 0em;
+    background-repeat: no-repeat;
+    border-color: #cccdcf;
+    outline: 0;
+  }
+  
+  
+  select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+
+  select.box option {
+    background-color: #505157;
+    font-weight: normal;
+    display: block;
+    white-space-collapse: collapse;
+    text-wrap: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+    margin: 0 0 0 4px;
+}
+
+.fa-times-circle{
+    color: #8f9098;
+}.fa-times-circle:hover{
+    color: #f6282e;
 }
