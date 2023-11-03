@@ -1,9 +1,11 @@
-html, body {
+body {
     background-color: #523C3C;
+    height: 100%;
     font-family: 'Arial';
     background: linear-gradient(0deg, rgba(54,57,74,1) 0%, rgba(82,60,60,1) 50%);
     background-attachment: fixed;
     color: #d9d9d9;
+    align-items: center;
 }
 .formcontainer{
     display: flex;
@@ -11,8 +13,6 @@ html, body {
     flex-wrap: wrap;
     margin: auto;
     align-items: center;
-    margin-left: 35%;
-    margin-right: 35%;
     width: 400px;
     height: auto;
     background-color: #36394A;
@@ -25,6 +25,7 @@ html, body {
     border-style: outset;
     border: none;
     height: 20px;
+    border-radius: 5px;
 }
 text{
     color:gray;
@@ -39,6 +40,11 @@ button{
     padding-right: 10%;
     padding-top: 5px;
     padding-bottom: 5px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin: auto;
+    display: block;
 }
 .bottomtext{
     color:#93A9C1;
@@ -49,7 +55,8 @@ a:visited{
 label{
     color:#d9d9d9;
     width: 175px;
-    padding-top: 5px;
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 .formgroup{
     display: flex;
@@ -66,10 +73,15 @@ title{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 185px;
-    align-items: baseline;
-    padding-bottom: 20px;
+    width: 200px;
+    align-items: center;
+    padding-bottom: 30px;
+}
+.login{
+    color: blue;
 }
 footer{
-    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
