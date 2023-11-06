@@ -100,3 +100,10 @@ def login_user(request):
 def logout_user(request):
     auth.logout(request)
     return redirect('home')
+
+def search(request):
+    if request.method == 'GET':
+        search = request.GET['searchInput']
+        if Games.objects.filter(title=search).exists():
+            game_id = str(getattr(Games, 'game_id'))
+            return redirect('game_page', game_id=game_id) # redirect to game_page w/ game_id
