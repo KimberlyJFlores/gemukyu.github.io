@@ -7,6 +7,37 @@
     <link rel="stylesheet" type="text/css" href="{% static 'account.css' %}">
 </head>
 <body>
+    Home &gt; Account Creation
+    <div>
+    account creation
+    </div>
+    <div class="accountcontainer">
+        <form>
+            <text>Create an account</text>
+            <label for="email">EMAIL:</label><br>
+            <input type="text" id="fname" name="email"><br>
+            <label for="fname">FIRST NAME:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">LAST NAME:</label><br>
+            <input type="text" id="lname" name="lname"><br>
+            <label for="password">PASSWORD:</label><br>
+            <input type="text" id="password" name="password"><br>
+        </form>
+        <form>
+            <text>BILLING</text>
+            <label for="street">STREET ADDRESS:</label><br>
+            <input type="street" id="fname" name="street"><br>
+            <label for="state">STATE:</label><br>
+            <input type="text" id="state" name="state"><br>
+            <label for="zipcode">ZIP CODE:</label><br>
+            <input type="text" id="zipcode" name="zipcode"><br>
+        </form>
+        <button> SIGN UP </button>
+        <text class="bottomtext">
+        Already have an account?&nbsp;
+        <a href="../"> Log in<a>
+        </text>
+    </div>
 </body>
 {% include "footer.html" %}
 </html>
