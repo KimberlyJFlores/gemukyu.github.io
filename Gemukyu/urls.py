@@ -30,5 +30,6 @@ urlpatterns = [
     path("login_user", views.login_user, name="login_user"),
     path("logout_user", views.logout_user, name="logout_user"),
     path('account/',views.account_page,name='account'),
+    path('search', views.search,name='search')
     ]
 urlpatterns += staticfiles_urlpatterns()
