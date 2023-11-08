@@ -30,5 +30,8 @@ urlpatterns = [
     path("login_user", views.login_user, name="login_user"),
     path("logout_user", views.logout_user, name="logout_user"),
     path('account/',views.account_page,name='account'),
+    path('order_confirmation/', views.order_confirmation, name='order_confirmation'),
+    path('order_on_cart/', views.order_on_cart, name='order_on_cart'),
+    path('add_to_cart/<int:game_id>/', views.add_to_cart, name='add_to_cart'),
     ]
 urlpatterns += staticfiles_urlpatterns()

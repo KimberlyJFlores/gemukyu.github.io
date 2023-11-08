@@ -1,0 +1,111 @@
+html, body {
+    background-color: #523C3C;
+
+    font-family: 'Arial';
+    background: linear-gradient(0deg, rgba(54,57,74,1) 0%, rgba(82,60,60,1) 50%);
+    background-attachment: fixed;
+    color: #d9d9d9;
+}
+.gamebanner{
+    background-color: #24282f;
+    height: 120px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    size:70px;
+    font-size: large;
+    
+}
+
+.gamescroller{
+    height: 175px;
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    overflow-x:auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow:hidden;
+    
+}
+.gamecontainer{
+    background-color: #24282f;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 0 0 auto;
+    margin-top: 2px;
+    justify-content: center;
+    margin-right: 6px;
+    width: 300px;
+    height: 200px;
+}
+text{
+    display: flex;
+    margin-left:15px;
+    margin-top: 20px;
+}
+line{
+    display: block;
+    height: 1px;
+    border: none;
+    border-top: 1px solid #575D75;
+}
+.bottomcontainer{
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 auto;
+    margin-top: 10px;
+    padding-top:5px;
+    width: auto;
+    height: 500px;
+    justify-content: center;
+    background-color: #24282f;
+}
+.selectbar{
+    display: flex;
+    background-color: #24282f;
+    height: 25px;
+    width: 100%;
+    color: #d9d9d9;
+    justify-content: space-evenly;
+    padding-bottom: 5px;
+}
+.select-items{
+    width:200px;
+    color: #d9d9d9;
+    background-color: #595B70;
+}
+select {
+    background: #595B70;
+    color: #d9d9d9;
+    border: none;
+    padding-left:15px;
+    padding-right:15px;
+}
+.gameviewer{
+    width:100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgb(17, 18, 23) 0%, rgb(54, 57, 74) 50%);
+    justify-content: center;
+    overflow-y: scroll;
+}
+.gamecard{
+    background-color: #24282f;
+    height: 70px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right:10px;
+    justify-content: center;
+    width:auto;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    align-items: center;
+}
