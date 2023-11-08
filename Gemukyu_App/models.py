@@ -2,9 +2,11 @@ from django.db import models
 
 class Users(models.Model):
     user_id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
-    password_hash = models.CharField(max_length=255)
+    username = models.CharField(max_length=30)
+    email = models.CharField(max_length=40)
+    password = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
     date_registered = models.DateTimeField()
     last_login = models.DateTimeField()
 
@@ -25,7 +27,7 @@ class Games(models.Model):
     release_date = models.DateField()
     genre = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image_path = models.CharField(max_length=255)  # New field for image path
+   # image_path = models.CharField(max_length=255)  # New field for image path
     publisher = models.ForeignKey(Publishers, on_delete=models.CASCADE)  # ForeignKey for Publisher
     developer = models.ForeignKey(Developers, on_delete=models.CASCADE)  # ForeignKey for Developer
 

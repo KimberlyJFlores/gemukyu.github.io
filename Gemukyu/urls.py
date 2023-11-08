@@ -17,16 +17,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Gemukyu_App import views
-from Gemukyu_App.views import game_list, home
+from Gemukyu_App.views import game_list, home, shoppingCart
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('', views.home, name='home'),
     path("admin/", admin.site.urls),
     path('games/', game_list, name='game_list'),
+    path('shoppingCart/', shoppingCart, name='shoppingCart'),
     path('game_page/', views.game_page, name='game_page'),
     path('game_page/add_to_cart/', views.add_to_cart, name='add_to_cart'),
-    path('order_confirmation.html/', views.order_confirmation, name='order_confirmation'),
-    path('order_on_cart.html/', views.order_on_cart, name='order_on_cart'),
+    path("register", views.register, name="register"),
+    path("login_user", views.login_user, name="login_user"),
+    path("logout_user", views.logout_user, name="logout_user"),
+    path('account/',views.account_page,name='account'),
+    path('order_confirmation/', views.order_confirmation, name='order_confirmation'),
+    path('order_on_cart/', views.order_on_cart, name='order_on_cart'),
     path('add_to_cart/<int:game_id>/', views.add_to_cart, name='add_to_cart'),
     ]
 urlpatterns += staticfiles_urlpatterns()

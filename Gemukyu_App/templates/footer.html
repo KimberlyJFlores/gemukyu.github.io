@@ -1,27 +1,26 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
-    {% load static %}
-    <!-- <link rel="stylesheet" type="text/css" href="{% static 'footer.css' %}"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'footer.css' %}">
 </head>
 <body>
-    <div class="text-center mt-5">
-        <a href="{% url 'home' %}" class="btn btn-primary">Back To Home</a>
-    </div>
-    <footer class="mt-5 footer">
-        <div class="container">
-            <div class="d-flex justify-content-between">
-                <div class="copyright">&copy; GEMUKYU GAMING 2023. All rights reserved.</div>
-                <div>
-                    <a href="#" class="mr-3">About Us</a>
-                    <a href="#" class="mr-3">Support</a>
-                    <a href="#" class="mr-3">Careers</a>
-                </div>
+    <footer class="footer">
+        <div class="top-line"></div>
+        <div class="container" style="margin-left: 100px;margin-right: 50px;">
+            <div class="footer-links">
+                <a class="footer a" href="#">ABOUT US</a>
+                <a class="footer a" href="#">SUPPORT</a>
+                <a class="footer a" href="#">CAREER</a>
+            </div>
+            <div class="footer-icons">
+                <a class="social-icon" href="https://www.facebook.com"><i class="fab fa-facebook" style="color: #2c67ce;"></i></a>
+                <a class="social-icon" href="https://www.twitter.com"><i class="fab fa-twitter" style="color: #5c98ff;"></i></a>
+                <a class="social-icon" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-    </footer>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <div class="bottom-line"></div>
+        <p class="footer p" style="margin-bottom: 0px;margin-top: 0px;padding-top: 0px;padding-bottom: 0px;">© GIMUKYU 2023 ALL RIGHTS RESERVED.</p>    </footer>
+</body>
 </html>
