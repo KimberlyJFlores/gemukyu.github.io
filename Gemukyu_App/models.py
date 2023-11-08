@@ -9,6 +9,7 @@ class Games(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     publisher_id = models.IntegerField()
     developer_id = models.IntegerField()
+    discount = models.DecimalField(decimal_places=3, max_digits=5, default=0)
 
 class Cart(models.Model):
     cart_id = models.AutoField(primary_key=True)
