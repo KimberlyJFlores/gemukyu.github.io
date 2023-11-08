@@ -106,4 +106,5 @@ def search(request):
         search = request.GET['searchInput']
         if Games.objects.filter(title=search).exists():
             game_id = str(getattr(Games, 'game_id'))
+            print("game_id:", game_id)
             return redirect('game_page', game_id=game_id) # redirect to game_page w/ game_id
