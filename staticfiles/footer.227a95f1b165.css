@@ -1,0 +1,49 @@
+/* footer.css */
+
+.footer {
+    background-color: #111217;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Container holding Links and Social Links */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.footer-links a, .footer-icons a {
+    color: white;
+    justify-content: space-between;
+    text-decoration: none;
+    font-weight: bolder;
+    margin: 0 15px;
+}
+
+/* Change color on hover */
+.footer a:hover {
+    flex-wrap: wrap;
+    background-color: #ddd;
+    color: black;
+}
+
+.footer p {
+    color: grey;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.top-line, .bottom-line {
+    width: 100%;
+    margin: 10px 0;
+    border-top: 1px solid #575d75;
+}
+
+.social-icon {
+    font-size: 30px;
+}
+
+
