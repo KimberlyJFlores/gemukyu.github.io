@@ -11,11 +11,7 @@ class DevelopersAdmin(admin.ModelAdmin):
 
 @admin.register(Games)
 class GamesAdmin(admin.ModelAdmin):
-    list_display = ('game_id', 'title', 'description', 'release_date', 'genre', 'price', 'publisher', 'developer')
-    list_filter = ('genre', 'publisher', 'developer')
-    search_fields = ('title', 'description')
-    ordering = ('-release_date',)
-    date_hierarchy = 'release_date'
+    list_display = ('game_id', 'title', 'description', 'release_date', 'genre', 'price', 'publisher_id', 'developer_id')
 
 @admin.register(OrderItems)
 class OrderItemsAdmin(admin.ModelAdmin):
@@ -35,14 +31,17 @@ class ReviewsAdmin(admin.ModelAdmin):
 
 @admin.register(Users)
 class UsersAdmin(admin.ModelAdmin):
-    list_display = ('user_id', 'username', 'email', 'date_registered', 'last_login')
-    search_fields = ('username', 'email')
-    ordering = ('-date_registered',)
-    date_hierarchy = 'date_registered'
+    list_display = ('user_id', 'username', 'email', 'password', 'first_name', 'last_name', 'date_registered', 'last_login')
 
 @admin.register(Wishlist)
 class WishlistAdmin(admin.ModelAdmin):
     list_display = ('wishlist_id', 'user_id', 'game_id', 'added_date')
 
+"""@admin.register(Trending)
+class TrendingAdmin(admin.ModelAdmin):
+    list_display = ('game_id')
 
+@admin.register(Foryou)
+class ForyouAdmin(admin.ModelAdmin):
+    list_display = ('game_id')"""
 
