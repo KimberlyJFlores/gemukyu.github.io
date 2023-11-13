@@ -21,8 +21,9 @@
         <a href="#">CATEGORIES</a>
         <a href="#">FEATURED</a>
         <div class="search-container">
-            <form class="no-submit">
-                <input class="no-submit" type="search" placeholder="Search Your Next Addiction :D" id="searchInput" method="GET">
+            <form action="{% url 'search' %}" method="POST">
+                {% csrf_token %}
+                <input class="no-submit" type="search" placeholder="Search Your Next Addiction :D" id="searchInput" name="searchInput" method="POST">
             </form> 
         </div>
         <a href="shoppingCart">CART</a>
