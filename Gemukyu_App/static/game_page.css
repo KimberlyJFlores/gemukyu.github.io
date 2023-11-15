@@ -38,7 +38,7 @@
     align-items: center;
     height: 700px;
     display:flex;
-    width: auto;
+    width: 95%;
     margin-left: 1%;
     margin-right: 1%;
     justify-content: left;
@@ -51,7 +51,7 @@
     border-radius: 5px;
     flex-wrap: wrap;
     height: 700px;
-    width: 110%;
+    width: 100%;
     justify-content: left;
     padding-left: 40px;
     padding-right: 40px;
@@ -67,10 +67,9 @@
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: 10px;
-    margin-top: 5%;
     margin-left: 75%;
     color: #fff;
+    vertical-align: middle;
 }
 
 .tablenospace {
