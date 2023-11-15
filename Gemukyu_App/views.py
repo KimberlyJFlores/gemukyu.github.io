@@ -8,7 +8,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 #from django.template import loader
 from .models import *
-from django.contrib.auth.models import User, auth #is this a double import? idk
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+
 
 def game_list(request):
     games = Games.objects.all()
@@ -106,15 +108,16 @@ def register(request):
         confirm_password = request.POST['confirm_password']
 
         if password==confirm_password:
-            if Users.objects.filter(username=username).exists():
+            if User.objects.filter(username=username).exists():
                 messages.info(request, 'Username is already taken')
                 return redirect(register)
-            elif Users.objects.filter(email=email).exists():
+            elif User.objects.filter(email=email).exists():
                 messages.info(request, 'Email is already taken')
                 return redirect(register)
             else:
-                user = Users.objects.create_user(username=username, password=password, 
-                                        email=email, first_name=first_name, last_name=last_name)
+                user = User.objects.create_user(username, email, password)
+                user.first_name = first_name
+                user.last_name = last_name
                 user.save()
                 
                 return redirect('login_user')
@@ -133,10 +136,13 @@ def login_user(request):
         username = request.POST['username']
         password = request.POST['password']
 
-        user = auth.authenticate(username=username, password=password)
+        #user = User.objects.create_user('Test', 'email@email.com', 'Test')
+        #above code creates account, format: (username, email, password)
+
+        user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            auth.login(request, user)
+            login(request, user)
             return redirect('home')
         else:
             messages.info(request, 'Invalid Username or Password')
@@ -148,12 +154,14 @@ def login_user(request):
         return render(request, 'login.html')
     
 def logout_user(request):
-    auth.logout(request)
+    logout(request)
     return redirect('home')
 
 def search(request):
-    if request.method == 'GET':
-        search = request.GET['searchInput']
-        if Games.objects.filter(title=search).exists():
+    if request.method == 'POST':
+        search = request.POST['searchInput']
+        if Games.objects.filter(title__contains=search):
             game_id = str(getattr(Games, 'game_id'))
-            return redirect('game_page', game_id=game_id) # redirect to game_page w/ game_id
+            return redirect('game_page') # redirect to game_page w/ game_id
+        else:
+            return redirect('home')
