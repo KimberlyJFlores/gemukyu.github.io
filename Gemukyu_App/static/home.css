@@ -17,7 +17,7 @@ html, body {
     margin-top: 30px;
     size:70px;
     font-size: large;
-    
+    box-shadow: 0px 1px 3px 0px black;
 }
 
 .gamescroller{
@@ -30,6 +30,7 @@ html, body {
     flex-wrap: nowrap;
     overflow-x: hidden;
     overflow:hidden;
+    margin: 0 0.6% 0 0.6%;
     
 }
 .gamecontainer{
@@ -44,6 +45,7 @@ html, body {
     margin-right: 6px;
     width: 300px;
     height: 200px;
+    box-shadow: 0px 3px 3px 0px black;
 }
 text{
     display: flex;
@@ -68,6 +70,8 @@ line{
     height: 500px;
     justify-content: center;
     background-color: #24282f;
+    margin-left: 0.6%;
+    margin-right: 0.6%;
 }
 .selectbar{
     display: flex;
@@ -77,6 +81,7 @@ line{
     color: #d9d9d9;
     justify-content: space-evenly;
     padding-bottom: 5px;
+    box-shadow: inset 0px -1.3px 2px 0px black;
 }
 .select-items{
     width:200px;
@@ -93,7 +98,7 @@ select {
 .gameviewer{
     width:100%;
     height: 100%;
-    background: linear-gradient(0deg, rgb(17, 18, 23) 0%, rgb(54, 57, 74) 50%);
+    background:rgb(17, 18, 23);
     justify-content: center;
     overflow-y: scroll;
     display: block;
@@ -110,7 +115,7 @@ select {
     flex: 0 0 auto;
     flex-wrap: wrap;
     align-items: center;
-    
+    box-shadow: 0px 1px 3px 0px black;
 }
 .gamecard:active{
     border-style: outset;
