@@ -27,7 +27,11 @@
             </form> 
         </div>
         <a href="shoppingCart">CART</a>
-        <a href="login_user">LOG IN</a>
+        {% if user.is_authenticated %}
+            <a href="logout_user">LOG OUT</a>
+        {% else %}
+            <a href="login_user">LOG IN</a>
+        {% endif %}
     </div>
     <div class="line"></div>
 </body>
