@@ -43,18 +43,24 @@
     <line></line>
     <div class="bottomcontainer">
         <div class="selectbar">
-            <select name="year">
-                <option value ="today">PRICE</option>
-                <option value ="today2">PRICE</option>
+            <select name="price">
+                <option value ="ascending">Ascending</option>
+                <option value ="descending">Descending</option>
             </select>
             <select name="genre">
-                <option value ="genre">GENRE</option>
-                <option value ="genre1">GENRE</option>
+                <option value ="actionrpg">Action RPG</option>
+                <option value ="actionadventure">Action-Adventure</option>
+                <option value ="adventure">Adventure</option>
+                <option value ="fighting">Fighting</option>
+                <option value ="fps">First-Person Shooter</option>
+                <option value ="platformer">Platformer</option>
+                <option value ="puzzle">Puzzle</option>
+                <option value ="survivalhorror">Survival Horror</option>
+                <option value ="visualnovel">Visual Novel</option>
             </select>
-            <select name="category">
-                <option value ="category">AVAILIBILITY</option>
-                <option value ="category2">AVAILABLE</option>
-                <option value ="category2">NOT AVAILABLE</option>
+            <select name="availability">
+                <option value ="available">Available</option>
+                <option value ="notavailable">Not Available</option>
             </select>
         </div>
         <div class="gameviewer">
@@ -62,7 +68,7 @@
             <div class="gamecard">
                 <div class="gamecardinfoimgcontainer">thumbnail here</div>
                 <div class="gamecardinfo">Title: {{ game.title }}</div>
-                <div class="gamecardinfo">Publisher: {{ game.publisher }}</div>
+                <div class="gamecardinfo">Genre: {{ game.genre }}</div>
                 <div class="gamecardinfo">Release Date: {{ game.release_date }}</div>
                 <div class="gamecardinfo">Price: ${{ game.price }}</div>
             </div>

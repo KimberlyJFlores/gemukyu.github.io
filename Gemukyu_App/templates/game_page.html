@@ -27,8 +27,8 @@
         </div>
         <div class="gamedescriptioncontainer">
             <table class="tablenospace">
-                <tr>
-                    <td>
+                <tr style="width: 100%;">
+                    <td style="width: 60%; padding-top: 10px; padding-left: 10px;">
                         <div class="gamedescription">
                             <h1>DESCRIPTION</h1>
                             <p style="font-size: 21px">
@@ -40,8 +40,8 @@
                             </div>
                         </div>
                     </td>
-                    <td style="float: right;">
-                        <h1 style="text-align: center; margin-left: 100%;">${{game.price}}</h1>
+                    <td style="width: 100%;vertical-align: top;padding-left: 6.5%;">
+                        <h1 style="text-align: center;">${{game.price}}</h1>
                         <form action="{% url 'add_to_cart' %}" method="post">
                             {% csrf_token %}
                             <button class="addtocartbutton"><h3>ADD TO CART</h3></button>
