@@ -13,26 +13,31 @@
     <line></line>
     <div class="gamescroller">
         {% for game in games %}
-        <div class="gamecontainer">Title: {{ game.title }}, Description: {{ game.description }}, Release Date: {{ game.release_date }}</div>
+        <div class="gamecontainer">
+            <div class="gamethumbnailimgcontainer">thumbnail here</div>
+            <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
+        </div>
         {% endfor %}
     </div>
     <text>FOR YOU</text>
     <line></line>
     <div class="gamescroller">
-        <button onclick="log()" class="gamecontainer"></button>
-        <div class="gamecontainer"></div>
-        <div class="gamecontainer"></div>
-        <div class="gamecontainer"></div>
-        <div class="gamecontainer"></div>
+        {% for game in games %}
+        <div class="gamecontainer">
+            <div class="gamethumbnailimgcontainer">thumbnail here</div>
+            <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
+        </div>
+        {% endfor %}
     </div>
     <text>SALE</text>
     <line></line>
     <div class="gamescroller">
-        <div class="gamecontainer"></div>
-        <div class="gamecontainer"></div>
-        <div class="gamecontainer"></div>
-        <div class="gamecontainer"></div>
-        <div class="gamecontainer"></div>
+        {% for game in games %}
+        <div class="gamecontainer">
+            <div class="gamethumbnailimgcontainer">thumbnail here</div>
+            <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
+        </div>
+        {% endfor %}
     </div>
     <div align="center"><text>SORT GAMES</text></div>
     <line></line>
@@ -54,7 +59,13 @@
         </div>
         <div class="gameviewer">
             {% for game in games %}
-            <div class="gamecard">Title: {{ game.title }}, Description: {{ game.description }}, Release Date: {{ game.release_date }}</div>
+            <div class="gamecard">
+                <div class="gamecardinfoimgcontainer">thumbnail here</div>
+                <div class="gamecardinfo">Title: {{ game.title }}</div>
+                <div class="gamecardinfo">Publisher: {{ game.publisher }}</div>
+                <div class="gamecardinfo">Release Date: {{ game.release_date }}</div>
+                <div class="gamecardinfo">Price: ${{ game.price }}</div>
+            </div>
             {% endfor %}
         </div>
     </div>

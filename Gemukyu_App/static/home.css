@@ -6,6 +6,30 @@ html, body {
     background-attachment: fixed;
     color: #d9d9d9;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #24282f;
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
 .gamebanner{
     background-color: #24282f;
     height: 120px;
@@ -25,13 +49,11 @@ html, body {
     display: flex;
     background-color: transparent;
     justify-content: center;
-    overflow-x:auto;
+    overflow-x:scroll;
     overflow-y: hidden;
     flex-wrap: nowrap;
-    overflow-x: hidden;
-    overflow:hidden;
     margin: 0 0.6% 0 0.6%;
-    
+    padding-bottom: 15px;
 }
 .gamecontainer{
     background-color: #24282f;
@@ -43,10 +65,31 @@ html, body {
     margin-top: 2px;
     justify-content: center;
     margin-right: 6px;
-    width: 300px;
+    width: 280px;
     height: 200px;
     box-shadow: 0px 3px 3px 0px black;
+    vertical-align: center;
 }
+
+.gamethumbnailimgcontainer{
+    background: white;
+    width: 97%;
+    height: 70%;
+    overflow: hidden;
+    margin-top: 2%;
+    color: #24282f;
+}
+
+.gamethumbnailtextcontainer{
+    width: inherit;
+    height: 30%;
+    color: white;
+    text-shadow: black;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5%;
+}
+
 text{
     display: flex;
     margin-left:15px;
@@ -105,7 +148,7 @@ select {
 }
 .gamecard{
     background-color: #24282f;
-    height: 70px;
+    height: 120px;
     margin-top: 10px;
     margin-left: 10px;
     margin-right:10px;
@@ -121,6 +164,19 @@ select {
     border-style: outset;
     border: none;
     cursor: pointer;
+}
+
+.gamecardinfo{
+    padding: 0 2% 0 2%;
+    width: 15%;
+}
+
+.gamecardinfoimgcontainer{
+    width: 15%;
+    height: 95%;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0px 1px 3px 0px black;
 }
 button {
     border: none;
