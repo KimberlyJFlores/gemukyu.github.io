@@ -7,56 +7,47 @@
     <link rel="stylesheet" type="text/css" href="{% static 'game_page.css' %}">
 </head>
 <body>
-   <h5 style="padding-left: 27px;">Home &gt; GAME TITLE</h5>
-   <h1 style="padding-left: 25px;margin-top: -20px">GAME TITLE</h1>
-   <hr style ="margin-top: -15px">
-   <div class="gamethumbnailcontainer">
-        <div class= "gamethumbnail">
-            <h1>GAME THUMBNAIL</h1>
+    {% for game in games %}
+        {% if game.game_id == 116 %}
+    <h5 style="padding-left: 27px;">Home &gt; {{ game.title }}</h5>
+    <h1 style="padding-left: 25px;margin-top: -20px">{{ game.title }}</h1>
+    <hr style ="margin-top: -15px">
+    <div class="gamethumbnailcontainer">
+            <div class= "gamethumbnail">
+                <h1>GAME THUMBNAIL</h1>
+            </div>
+            <table>
+                <tr style="padding: 15px; font-size: 20px;">
+                    <td style="padding: 15px; font-size: 20px;">PUBLISHER:</td>
+                    <td style="padding: 15px; font-size: 20px;">RELEASE DATE: {{ game.release_date }}</td>
+                    <td style="padding: 15px; font-size: 20px;">GENRE: {{ game.genre }}</td>
+                </tr>
+            </table>
         </div>
-        <table>
-            <tr style="padding: 15px; font-size: 20px;">
-                <td style="padding: 15px; font-size: 20px;">PUBLISHER NAME</td>
-                <td style="padding: 15px; font-size: 20px;">RELEASE DATE</td>
-                <td style="padding: 15px; font-size: 20px;">STARS RATING</td>
-                <td style="padding: 15px; font-size: 20px;">GENRE</td>
-            </tr>
-        </table>
-    </div>
-    <div class="gamedescriptioncontainer">
-        <table class="tablenospace">
-            <tr>
-                <td>
-                    <div class="gamedescription">
-                        <h1>DESCRIPTION</h1>
-                        <p style="font-size: 21px">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec nibh vitae lorem semper
-                        sagittis eu quis massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                        cubilia curae; Nullam lobortis erat ac volutpat blandit. Aenean ex justo, rhoncus in tincidunt eu,
-                        molestie sed nunc. Duis porttitor bibendum sodales. In tincidunt interdum pellentesque. Ut ut hendrerit
-                        nibh, in aliquet erat. Donec nec odio quis purus ornare hendrerit. Nam sit amet lectus massa. Phasellus
-                        ac tellus pulvinar, ornare nisi ac, fringilla tellus. Fusce ac justo eu ligula egestas venenatis. Fusce vulputate,
-                        ipsum id blandit egestas, est est congue purus, eu ullamcorper lectus ex tristique massa.
-                        </p>
-                        <p style="font-size: 21px">
-                        Proin placerat mi malesuada, vulputate turpis eget, rutrum arcu. Proin placerat ante et dolor semper, ac luctus
-                        lacus vestibulum. Vivamus pulvinar sollicitudin velit id tincidunt. Mauris rhoncus malesuada mi, eget eleifend elit
-                        imperdiet eget. Aliquam et eros vestibulum, lacinia nunc at, finibus nisi. Nam tempus, diam a scelerisque ornare, tellus
-                        dui placerat libero, non pulvinar nibh mi quis nulla. Curabitur mollis leo ut massa vestibulum pellentesque.
-                        Nam dignissim.
-                        </p>
-                    </div>
-                </td>
-                <td style="float: right;">
-                    <h1 style="text-align: center; margin-left: 105%;">$00.00</h1>
-                    <form action="{% url 'add_to_cart' %}" method="post">
-                        {% csrf_token %}
-                        <button class="addtocartbutton">ADD TO CART</button>
-                    </form>
-                </td>
-            </tr>
-        </table>
-    </div>
+        <div class="gamedescriptioncontainer">
+            <table class="tablenospace">
+                <tr>
+                    <td>
+                        <div class="gamedescription">
+                            <h1>DESCRIPTION</h1>
+                            <p style="font-size: 21px">
+                                {{ game.description }}
+                            </p>
+                        </div>
+                    </td>
+                    <td style="float: right;">
+                        <h1 style="text-align: center; margin-left: 100%;">${{game.price}}</h1>
+                        <form action="{% url 'add_to_cart' %}" method="post">
+                            {% csrf_token %}
+                            <button class="addtocartbutton"><h3>ADD TO CART</h3></button>
+                        </form>
+                        <h2 style="text-align: center; margin-left: 100%;">500 left!</h2>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {% endif %}
+    {% endfor %}
 </body>
 {% include "footer.html" %}
 </html>
