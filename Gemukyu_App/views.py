@@ -76,16 +76,6 @@ def order_on_cart(request):
     }
 
     return render(request, 'order_on_cart.html', context)
-
-def order_confirmation(request):
-    order_items = OrderItems.objects.filter(order_id=request.session.get('order_id', None))
-    return render(request, 'order_confirmation.html', {'order_items': order_items})
-
-def order_on_cart(request):
-    cart_items = Cart.objects.filter(id=request.session.get('cart_id', None))
-    total_price = sum([item.game.price * item.quantity for item in cart_items])
-    sales_tax = 0.082 * total_price  # Just an example for 8.2% sales tax
-    grand_total = total_price + sales_tax
     
     context = {
         'cart_items': cart_items,
