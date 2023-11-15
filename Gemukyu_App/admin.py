@@ -11,7 +11,7 @@ class DevelopersAdmin(admin.ModelAdmin):
 
 @admin.register(Games)
 class GamesAdmin(admin.ModelAdmin):
-    list_display = ('game_id', 'title', 'description', 'release_date', 'genre', 'price', 'publisher_id', 'developer_id')
+    list_display = ('game_id', 'title', 'description', 'release_date', 'genre', 'price', 'publisher', 'pub_website', 'developer', 'dev_website', 'discount')
 
 @admin.register(OrderItems)
 class OrderItemsAdmin(admin.ModelAdmin):

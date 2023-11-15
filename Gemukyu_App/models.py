@@ -7,8 +7,10 @@ class Games(models.Model):
     release_date = models.DateField()
     genre = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    publisher_id = models.IntegerField()
-    developer_id = models.IntegerField()
+    publisher = models.CharField(max_length=255,default="placeholder")
+    pub_website = models.CharField(max_length=500,default="placeholder")
+    developer = models.CharField(max_length=255, default="placeholder")
+    dev_website = models.CharField(max_length=500, default="placeholder")
     discount = models.DecimalField(decimal_places=3, max_digits=5, default=0)
 
 class Cart(models.Model):
