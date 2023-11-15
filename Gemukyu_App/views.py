@@ -152,6 +152,6 @@ def search(request):
         search = request.POST['searchInput']
         if Games.objects.filter(title__contains=search):
             game_id = str(getattr(Games, 'game_id'))
-            return redirect('game_page') # redirect to game_page w/ game_id
+            return redirect('game_page') # found this game
         else:
-            return redirect('home')
+            return redirect('home') # didn't find this game

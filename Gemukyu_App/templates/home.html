@@ -16,10 +16,15 @@
     <line></line>
     <div class="gamescroller">
         {% for game in games %}
-        <div class="gamecontainer">
-            <div class="gamethumbnailimgcontainer">thumbnail here</div>
-            <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
-        </div>
+        <form method="get">
+            {% csrf_token %}
+            <button type="submit" name="game_id" value="{{ game.game_id }}" style="nostyle">
+                <div class="gamecontainer">
+                    <div class="gamethumbnailimgcontainer">thumbnail here</div>
+                    <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
+                </div>
+            </button>
+        </form>
         {% endfor %}
     </div>
     <text>FOR YOU</text>
