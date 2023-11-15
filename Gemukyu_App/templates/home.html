@@ -6,6 +6,9 @@
 <body>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+    {% if user.is_authenticated %}
+    <div align="center"><h3 style="text-shadow: 0px 2px 2px black">Welcome back, {{ user.username }}.</h3></div>
+    {% endif %}
     <div class="gamebanner">
         Banner of Featured Game
     </div>
