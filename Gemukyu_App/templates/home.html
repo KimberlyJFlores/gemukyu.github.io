@@ -19,7 +19,7 @@
         <form action="{% url 'game_page' %}" method="POST" name="game_id" value="{{ game.game_id }}">
             {% csrf_token %}
             <a href="game_page">
-                <button type="submit" name="game_id" value="{{ game.game_id }}" method='POST'>
+                <button type="submit" name="game_id" value="{{ game.game_id }}" method='POST' style="background: transparent;">
                     <div class="gamecontainer">
                         <div class="gamethumbnailimgcontainer">thumbnail here</div>
                         <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
@@ -33,20 +33,34 @@
     <line></line>
     <div class="gamescroller">
         {% for game in games %}
-        <div class="gamecontainer">
-            <div class="gamethumbnailimgcontainer">thumbnail here</div>
-            <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
-        </div>
+        <form action="{% url 'game_page' %}" method="POST" name="game_id" value="{{ game.game_id }}">
+            {% csrf_token %}
+            <a href="game_page">
+                <button type="submit" name="game_id" value="{{ game.game_id }}" method='POST' style="background: transparent;">
+                    <div class="gamecontainer">
+                        <div class="gamethumbnailimgcontainer">thumbnail here</div>
+                        <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
+                    </div>
+                </button>
+            </a>
+        </form>
         {% endfor %}
     </div>
     <text>SALE</text>
     <line></line>
     <div class="gamescroller">
         {% for game in games %}
-        <div class="gamecontainer">
-            <div class="gamethumbnailimgcontainer">thumbnail here</div>
-            <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
-        </div>
+        <form action="{% url 'game_page' %}" method="POST" name="game_id" value="{{ game.game_id }}">
+            {% csrf_token %}
+            <a href="game_page">
+                <button type="submit" name="game_id" value="{{ game.game_id }}" method='POST' style="background: transparent;">
+                    <div class="gamecontainer">
+                        <div class="gamethumbnailimgcontainer">thumbnail here</div>
+                        <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
+                    </div>
+                </button>
+            </a>
+        </form>
         {% endfor %}
     </div>
     <div align="center"><text>SORT GAMES</text></div>
@@ -76,11 +90,20 @@
         <div class="gameviewer">
             {% for game in games %}
             <div class="gamecard">
-                <div class="gamecardinfoimgcontainer">thumbnail here</div>
-                <div class="gamecardinfo">Title: {{ game.title }}</div>
-                <div class="gamecardinfo">Genre: {{ game.genre }}</div>
-                <div class="gamecardinfo">Release Date: {{ game.release_date }}</div>
-                <div class="gamecardinfo">Price: ${{ game.price }}</div>
+                <form action="{% url 'game_page' %}" method="POST" name="game_id" value="{{ game.game_id }}" style="width:100%; height:100%">
+                    {% csrf_token %}
+                    <button type="submit" name="game_id" value="{{ game.game_id }}" method='POST' style="background: transparent; width:100%; height:100%">
+                        <table width=100%>
+                            <tr>
+                                <td ><div class="gamecardinfoimgcontainer">thumbnail here</div></td>
+                                <td><div class="gamecardinfo">Title: {{ game.title }}</div></td>
+                                <td><div class="gamecardinfo">Genre: {{ game.genre }}</div></td>
+                                <td><div class="gamecardinfo">Release Date: {{ game.release_date }}</div></td>
+                                <td><div class="gamecardinfo">Price: ${{ game.price }}</div></td>
+                            </tr>
+                        </table>
+                    </button>
+                </form>
             </div>
             {% endfor %}
         </div>
