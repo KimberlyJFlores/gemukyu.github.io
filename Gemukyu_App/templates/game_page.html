@@ -8,49 +8,51 @@
 </head>
 <body>
     {% for game in games %}
-        {% if game.game_id == 116 %}
-    <h5 style="padding-left: 27px;">Home &gt; {{ game.title }}</h5>
-    <h1 style="padding-left: 25px;margin-top: -20px">{{ game.title }}</h1>
-    <hr style ="margin-top: -15px">
-    <div class="gamethumbnailcontainer">
-            <div class= "gamethumbnail">
-                <h1>GAME THUMBNAIL</h1>
+        {% if game.game_id == game_id|add:"0" %}
+        <h5 style="padding-left: 27px;">Home &gt; {{ game.title }}</h5>
+        <h1 style="padding-left: 25px;margin-top: -20px">{{ game.title }}</h1>
+        <hr style ="margin-top: -15px">
+        <div class="gamethumbnailcontainer">
+                <div class= "gamethumbnail">
+                    <h1>GAME THUMBNAIL</h1>
+                </div>
+                <table>
+                    <tr style="padding: 15px; font-size: 20px;">
+                        <td style="padding: 15px; font-size: 20px;">PUBLISHER: {{ game.publisher }}</td>
+                        <td style="padding: 15px; font-size: 20px;">DEVELOPER: {{ game.developer }}</td>
+                        <td style="padding: 15px; font-size: 20px;">RELEASE DATE: {{ game.release_date }}</td>
+                        <td style="padding: 15px; font-size: 20px;">GENRE: {{ game.genre }}</td>
+                    </tr>
+                </table>
             </div>
-            <table>
-                <tr style="padding: 15px; font-size: 20px;">
-                    <td style="padding: 15px; font-size: 20px;">PUBLISHER: {{ game.publisher }}</td>
-                    <td style="padding: 15px; font-size: 20px;">DEVELOPER: {{ game.developer }}</td>
-                    <td style="padding: 15px; font-size: 20px;">RELEASE DATE: {{ game.release_date }}</td>
-                    <td style="padding: 15px; font-size: 20px;">GENRE: {{ game.genre }}</td>
-                </tr>
-            </table>
-        </div>
-        <div class="gamedescriptioncontainer">
-            <table class="tablenospace">
-                <tr style="width: 100%;">
-                    <td style="width: 60%; padding-top: 10px; padding-left: 10px;">
-                        <div class="gamedescription">
-                            <h1>DESCRIPTION</h1>
-                            <p style="font-size: 21px">
-                                {{ game.description }}
-                            </p>
-                            <div align="left" style="box-shadow: 0 0 0 0">
-                                <h3>VISIT PUBLISHER: {{ game.pub_website }}</h3>
-                                <h3>VISIT DEVELOPER: {{ game.dev_website }}</h3>
+            <div class="gamedescriptioncontainer">
+                <table class="tablenospace">
+                    <tr style="width: 100%;">
+                        <td style="width: 60%; padding-top: 10px; padding-left: 10px;">
+                            <div class="gamedescription">
+                                <h1>DESCRIPTION</h1>
+                                <p style="font-size: 21px">
+                                    {{ game.description }}
+                                </p>
+                                <div align="left" style="box-shadow: 0 0 0 0">
+                                    <h3>VISIT PUBLISHER: {{ game.pub_website }}</h3>
+                                    <h3>VISIT DEVELOPER: {{ game.dev_website }}</h3>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td style="width: 100%;vertical-align: top;padding-left: 6.5%;">
-                        <h1 style="text-align: center;">${{game.price}}</h1>
-                        <form action="{% url 'add_to_cart' %}" method="post">
-                            {% csrf_token %}
-                            <button class="addtocartbutton"><h3>ADD TO CART</h3></button>
-                        </form>
-                    </td>
-                </tr>
-            </table>
-        </div>
+                        </td>
+                        <td style="width: 100%;vertical-align: top;padding-left: 6.5%;">
+                            <h1 style="text-align: center;">${{game.price}}</h1>
+                            <form action="{% url 'add_to_cart' %}" method="post">
+                                {% csrf_token %}
+                                <button class="addtocartbutton"><h3>ADD TO CART</h3></button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         {% endif %}
+        {% empty %}
+            <h1>Nothing inside of games object.</h1>
     {% endfor %}
 </body>
 {% include "footer.html" %}

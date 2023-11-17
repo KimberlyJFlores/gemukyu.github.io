@@ -16,14 +16,16 @@
     <line></line>
     <div class="gamescroller">
         {% for game in games %}
-        <form method="get">
+        <form action="{% url 'game_page' %}" method="POST" name="game_id" value="{{ game.game_id }}">
             {% csrf_token %}
-            <button type="submit" name="game_id" value="{{ game.game_id }}" style="nostyle">
-                <div class="gamecontainer">
-                    <div class="gamethumbnailimgcontainer">thumbnail here</div>
-                    <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
-                </div>
-            </button>
+            <a href="game_page">
+                <button type="submit" name="game_id" value="{{ game.game_id }}" method='POST'>
+                    <div class="gamecontainer">
+                        <div class="gamethumbnailimgcontainer">thumbnail here</div>
+                        <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
+                    </div>
+                </button>
+            </a>
         </form>
         {% endfor %}
     </div>

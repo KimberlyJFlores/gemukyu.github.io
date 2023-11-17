@@ -17,7 +17,7 @@
             </div>
         </a>
         <div class="search-container" style="border-right-style: solid;border-right-width: 0px;width: 55%;">
-            <form action="{% url 'search' %}" method="POST" style="width: 100%;">
+            <form action="{% url 'game_page' %}" method="POST" style="width: 100%;">
                 {% csrf_token %}
                 <input class="no-submit" type="search" placeholder="Search Your Next Addiction :D" id="searchInput" name="searchInput" method="POST">
             </form> 

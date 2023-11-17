@@ -30,7 +30,24 @@ def shoppingCart(request):
 
 def game_page(request):
     games = Games.objects.all()
-    return render(request,'game_page.html', {'games': games})
+    if request.method == 'POST':
+
+        game_id = request.POST.get('game_id')
+        search = request.POST.get('searchInput')
+
+        # coming from home page
+        if (game_id is not None) and (game_id != ""):
+            return render(request,'game_page.html', {'games': games, 'game_id': game_id})
+        
+        # coming from search bar
+        if (search is not None) and (search != ""):
+            try:
+                foundGame = Games.objects.get(title=search)
+                game_id = foundGame.game_id
+                return render(request,'game_page.html', {'games': games, 'game_id': game_id}) # found this game
+            except:
+                print("ERROR: Couldn't find game with title '%s'." % search)
+                return redirect('home') # didn't find this game
 
 def account_page(request):
     return render(request,'account.html');
@@ -147,6 +164,7 @@ def logout_user(request):
     logout(request)
     return redirect('home')
 
+'''
 def search(request):
     if request.method == 'POST':
         search = request.POST['searchInput']
@@ -155,3 +173,4 @@ def search(request):
             return redirect('game_page') # found this game
         else:
             return redirect('home') # didn't find this game
+'''
