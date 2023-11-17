@@ -77,7 +77,8 @@ def add_to_cart(request):
 
 def order_confirmation(request):
     order_items = OrderItems.objects.filter(order_id=request.session.get('order_id', None))
-    return render(request, 'order_confirmation.html', {'order_items': order_items})
+    games = Games.objects.all()
+    return render(request, 'order_confirmation.html', {'games': games})
 
 def order_on_cart(request):
     cart_items = Cart.objects.filter(id=request.session.get('cart_id', None))
