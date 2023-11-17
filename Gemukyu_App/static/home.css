@@ -160,6 +160,7 @@ select {
     flex-wrap: wrap;
     align-items: center;
     box-shadow: 0px 1px 3px 0px black;
+    align-items: center;
 }
 .gamecard:active{
     border-style: outset;
@@ -169,11 +170,12 @@ select {
 
 .gamecardinfo{
     padding: 0 2% 0 2%;
-    width: 15%;
+    width: inherit;
+    color:white;
 }
 
 .gamecardinfoimgcontainer{
-    width: 15%;
+    width: inherit;
     height: 95%;
     overflow: hidden;
     background: white;
