@@ -10,7 +10,7 @@ from django.urls import reverse
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-
+import time #for testing purposes
 
 def game_list(request):
     games = Games.objects.all()
@@ -55,25 +55,19 @@ def account_page(request):
 #TODO Needs game_id and quantity. cart_id is autofield.
 
 def add_to_cart(request):
-    # This is just for demonstration; you'd fetch game_id and quantity based on your application's requirements.
-    game_id = 2
-    quantity = 1
-    cart_id = request.session.get('cart_id')
-    
-    if not cart_id:
-        new_cart = Cart.objects.create(user_id=None)  # No user since they're not logged in.
-        request.session['cart_id'] = new_cart.id
-        cart_id = new_cart.id
 
-    cart_item, created = Cart.objects.get_or_create(cart_id=cart_id, game_id=game_id)
+    if not request.user.is_authenticated:
+        return redirect('login_user')
     
-    if created:
-        cart_item.quantity = quantity
-    else:
-        cart_item.quantity += quantity
-    cart_item.save()
+    #game_id = request.POST.get(Games.game_id)
+    #print(game_id)
+    #time.sleep(1)
+    #testing to see if game id was passed
 
-    return HttpResponseRedirect(reverse('game_page'))
+    cartItem = Cart(game_id=Games.objects.get(game_id=192), user_id=request.user.id, quantity=1, cart_id=request.user.id)
+    print(cartItem)
+    cartItem.save()
+    return redirect('home')
 
 def order_confirmation(request):
     order_items = OrderItems.objects.filter(order_id=request.session.get('order_id', None))
