@@ -30,10 +30,16 @@ def shoppingCart(request):
     #games = Games.objects.all()
     cart = Cart.objects.filter(user_id=request.user.id)
     numCartItems = cart.count()
+    estimateTotal = 0
 
+    for cartItem in cart:
+        estimateTotal += cartItem.game_id.price
+
+    #print (estimateTotal)
     context = {#'games': games, 
                'numCartItems': numCartItems,
-               'cart': cart}
+               'cart': cart,
+               'estimateTotal': estimateTotal}
 
     #for game in games:
     #    print(f"Title: {game.title}, Description: {game.description}, Publisher: {game.release_date}")
