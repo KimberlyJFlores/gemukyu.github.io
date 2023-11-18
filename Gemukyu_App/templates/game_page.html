@@ -14,7 +14,7 @@
         <hr style ="margin-top: -15px">
         <div class="gamethumbnailcontainer">
                 <div class= "gamethumbnail">
-                    <img src="static/images/{{ game.big_pic }}">
+                    <img src="{% static 'images/' %}{{ game.big_pic }} " style="width:99%; height:99%" style="width:99%; height:99%;transform: scale(1.1);overflow: hidden;object-fit: cover;object-position: bottom;">
                 </div>
                 <table>
                     <tr style="padding: 15px; font-size: 20px;">

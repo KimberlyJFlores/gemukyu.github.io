@@ -14,7 +14,6 @@ class Games(models.Model):
     discount = models.DecimalField(decimal_places=3, max_digits=5, default=0)
     small_pic = models.CharField(max_length=200, default="/static/images/GimukyuHomeIcon.png")
     big_pic = models.CharField(max_length=200, default="/static/images/GimukyuHomeIcon.png")
-    image_id = models.IntegerField()
 
 class Cart(models.Model):
     cart_id = models.AutoField(primary_key=True)
@@ -76,11 +75,3 @@ class Trending(models.Model):
 class Foryou(models.Model):
     foryou_id = models.AutoField(primary_key=True)
     game_id = models.ForeignKey(Games, on_delete=models.CASCADE)
-
-class Images(models.Model):
-    image_id = models.AutoField(primary_key=True)
-    small_link = models.CharField(max_length=255)
-    medium_link = models.CharField(max_length=255)
-    large_link = models.CharField(max_length=255)
-    banner_link = models.CharField(max_length=255)
-    game_id = models.IntegerField()
