@@ -21,7 +21,9 @@
             <a href="game_page">
                 <button type="submit" name="game_id" value="{{ game.game_id }}" method='POST' style="background: transparent;">
                     <div class="gamecontainer">
-                        <div class="gamethumbnailimgcontainer">thumbnail here</div>
+                        <div class="gamethumbnailimgcontainer">
+                            <img src="static/images/{{ game.small_pic }}" style="height:100%; width:inherit">
+                        </div>
                         <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
                     </div>
                 </button>
@@ -38,7 +40,9 @@
             <a href="game_page">
                 <button type="submit" name="game_id" value="{{ game.game_id }}" method='POST' style="background: transparent;">
                     <div class="gamecontainer">
-                        <div class="gamethumbnailimgcontainer">thumbnail here</div>
+                        <div class="gamethumbnailimgcontainer">
+                            <img src="static/images/{{ game.small_pic }}" style="height:100%; width:inherit">
+                        </div>
                         <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
                     </div>
                 </button>
@@ -55,7 +59,9 @@
             <a href="game_page">
                 <button type="submit" name="game_id" value="{{ game.game_id }}" method='POST' style="background: transparent;">
                     <div class="gamecontainer">
-                        <div class="gamethumbnailimgcontainer">thumbnail here</div>
+                        <div class="gamethumbnailimgcontainer">
+                            <img src="static/images/{{ game.small_pic }}" style="height:100%; width:inherit">
+                        </div>
                         <div class="gamethumbnailtextcontainer">{{ game.title }}</div>
                     </div>
                 </button>
@@ -95,7 +101,11 @@
                     <button type="submit" name="game_id" value="{{ game.game_id }}" method='POST' style="background: transparent; width:100%; height:100%">
                         <table width=100%>
                             <tr>
-                                <td ><div class="gamecardinfoimgcontainer">thumbnail here</div></td>
+                                <td >
+                                    <div class="gamecardinfoimgcontainer">
+                                        <img src="static/images/{{ game.small_pic }}" style="height:100px; width:100px">
+                                    </div>
+                                </td>
                                 <td><div class="gamecardinfo">Title: {{ game.title }}</div></td>
                                 <td><div class="gamecardinfo">Genre: {{ game.genre }}</div></td>
                                 <td><div class="gamecardinfo">Release Date: {{ game.release_date }}</div></td>
