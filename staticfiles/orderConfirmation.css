@@ -1,0 +1,31 @@
+body{
+    justify-content: center;
+}
+h1,h2{
+    text-align: center;
+}
+.orderContainer{
+    padding:10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #36394A;
+    width:50%;
+    height: 600px;
+    box-shadow: 0px 1px 3px 0px black;
+}
+.ordergameContainer{
+  padding: 10px;
+  height: 70%;
+}
+button{
+    background-color: #36394A;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 50x;
+    padding: 30px;
+    font-size: large;
+    color: #d9d9d9;
+    box-shadow: 0px 1px 3px 0px black;
+}
