@@ -10,7 +10,12 @@
     <div align="center"><h3 style="text-shadow: 0px 2px 2px black">Welcome back, {{ user.username }}.</h3></div>
     {% endif %}
     <div class="gamebanner">
-        Banner of Featured Game
+        <form action="{% url 'game_page' %}" method="POST" name="game_id" value="{{ game.game_id }}">
+            {% csrf_token %}
+            <button type="submit" name="game_id" value="184" method='POST' style="background: transparent; width:inherit; height:inherit">
+            <img src="static/images/BaldursGate3Banner.jpg" style="width:99%; height:96%" style="width:92%; height:90%;transform: scale(1.1);overflow: hidden;object-fit: cover;object-position: bottom;">
+            </button>
+        </form>
     </div>
     <text>TRENDING</text>
     <line></line>
