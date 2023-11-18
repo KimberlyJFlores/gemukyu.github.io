@@ -65,7 +65,6 @@ def add_to_cart(request):
     #testing to see if game id was passed
 
     cartItem = Cart(game_id=Games.objects.get(game_id=192), user_id=request.user.id, quantity=1, cart_id=request.user.id)
-    print(cartItem)
     cartItem.save()
     return redirect('home')
 
