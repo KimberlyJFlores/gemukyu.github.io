@@ -18,7 +18,7 @@
 </div>
 
 <div class="formcontainer">
-	<form action="register" method="POST" class="form-horizontal">
+	<form action="{% url 'register' %}" method="POST" class="form-horizontal">
 		{% csrf_token%}
 			<div class="col-xs-8 col-xs-offset-4">
 				<h2 style="text-align:center;">SIGN UP</h2>
