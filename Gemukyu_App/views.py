@@ -42,13 +42,14 @@ def shoppingCart(request):
 @login_required(login_url='login_user')
 def remove_from_cart(request):
     cart_item_id = request.POST.get('cart_item_id')
+    #print(cart_item_id)
     cart_item = get_object_or_404(Cart, cart_id=cart_item_id)
 
     if (cart_item.user_id == request.user.id):
         cart_item.delete()
         messages.success(request, "Item removed from your cart.")
     
-    return redirect("")
+    return redirect('shoppingCart')
 
 def game_page(request):
     games = Games.objects.all()

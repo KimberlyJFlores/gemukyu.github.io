@@ -31,12 +31,15 @@
             </div>
         {% elif numCartItems != 0 %}
             {% for cartItem in cart %}
-            <form action="{% url 'remove_from_cart' %}" method="POST" name="game_id" value="cartItem.cart_id">
+            <form action="{% url 'remove_from_cart' %}" method="POST" name="cart_item_id" value="{{ cartItem.cart_id }}">
+                {% csrf_token %}
+                <button type="submit" name="cart_item_id" value="{{ cartItem.cart_id }}" method="POST">
                 <div class="cart-item">
                     {{ cartItem.game_id.title }}
                     <!-- Individual cart item content here -->
                 </div>
                 <!-- Repeat the cart item structure for each item -->
+                </button>
             </form>
             {% endfor %}
         {% endif %}
