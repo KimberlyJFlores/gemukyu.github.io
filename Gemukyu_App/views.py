@@ -3,12 +3,13 @@
 # Create your views here.
 
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 #from django.template import loader
 from .models import *
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 import time #for testing purposes
 
@@ -24,12 +25,26 @@ def home(request):
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
     return render(request,'home.html', {'games': games, 'cart': carts, 'numCartItems': numCartItems})
 
+@login_required(login_url='login')
 def shoppingCart(request):
     games = Games.objects.all()
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
-    for game in games:
-        print(f"Title: {game.title}, Description: {game.description}, Publisher: {game.release_date}")
+    
+    
+
+    #for game in games:
+    #    print(f"Title: {game.title}, Description: {game.description}, Publisher: {game.release_date}")
     return render(request,'shoppingCart.html', {'games': games, 'numCartItems': numCartItems})
+
+@login_required(login_url='login')
+def remove_from_cart(request, cart_item_id):
+    cart_item = get_object_or_404(Cart, cart_id=cart_item_id)
+
+    if (cart_item.user_id == request.user.id):
+        cart_item.delete()
+        messages.success(request, "Item removed from your cart.")
+    
+    return redirect("")
 
 def game_page(request):
     games = Games.objects.all()

@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*',
                  'gemukyu-host.azurewebsites.net',
                  ] 
-
+CSRF_TRUSTED_ORIGINS = ['https://gemukyu-host.azurewebsites.net','https://*.127.0.0.1']
 
 # Application definition
 
