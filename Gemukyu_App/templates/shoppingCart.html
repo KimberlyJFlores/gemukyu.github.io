@@ -14,7 +14,7 @@
     </header>
     
     <div class="breadcrumb">
-        <a href="#">Home</a> > <b href="#">Your Shopping Cart</b>
+        <a href="{% url 'home' %}">Home</a> > <b href="{% url 'shoppingCart' %}">Your Shopping Cart</b>
     </div>
     
     <div class="title">
@@ -25,13 +25,24 @@
     
     <div class="cart-box">
         <!-- Shopping cart items here -->
-
-        <div class="cart-item">
-            No Items!!! :(
-            <!-- Individual cart item content here -->
-        </div>
-        <!-- Repeat the cart item structure for each item -->
+        {% if numCartItems == 0 %}
+            <div class="cart-item">
+                No Items!!! :(
+            </div>
+        {% elif numCartItems != 0 %}
+            {% for cartItem in cart %}
+            <form action="{% url 'remove_from_cart' %}" method="POST" name="game_id" value="cartItem.cart_id">
+                <div class="cart-item">
+                    {{ cartItem.game_id.title }}
+                    <!-- Individual cart item content here -->
+                </div>
+                <!-- Repeat the cart item structure for each item -->
+            </form>
+            {% endfor %}
+        {% endif %}
     </div>
+
+
 
     <div class="total-box">
         <div class="total-item">

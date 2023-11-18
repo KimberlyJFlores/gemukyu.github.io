@@ -27,17 +27,21 @@ def home(request):
 
 @login_required(login_url='login_user')
 def shoppingCart(request):
-    games = Games.objects.all()
-    numCartItems = Cart.objects.filter(user_id=request.user.id).count()
-    
+    #games = Games.objects.all()
+    cart = Cart.objects.filter(user_id=request.user.id)
+    numCartItems = cart.count()
 
+    context = {#'games': games, 
+               'numCartItems': numCartItems,
+               'cart': cart}
 
     #for game in games:
     #    print(f"Title: {game.title}, Description: {game.description}, Publisher: {game.release_date}")
-    return render(request,'shoppingCart.html', {'games': games, 'numCartItems': numCartItems})
+    return render(request,'shoppingCart.html', context)
 
 @login_required(login_url='login_user')
-def remove_from_cart(request, cart_item_id):
+def remove_from_cart(request):
+    cart_item_id = request.POST.get('cart_item_id')
     cart_item = get_object_or_404(Cart, cart_id=cart_item_id)
 
     if (cart_item.user_id == request.user.id):

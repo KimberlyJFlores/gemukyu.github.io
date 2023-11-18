@@ -32,6 +32,6 @@ urlpatterns = [
     path(r'account/',views.account_page,name='account'),
     path(r'order_confirmation/', views.order_confirmation, name='order_confirmation'),
     path(r'order_on_cart/', views.order_on_cart, name='order_on_cart'),
-    path(r'add_to_cart/<int:game_id>/', views.add_to_cart, name='add_to_cart'),
+    path(r'remove_from_cart/', views.remove_from_cart, name='remove_from_cart'),
     ]
 urlpatterns += staticfiles_urlpatterns()
