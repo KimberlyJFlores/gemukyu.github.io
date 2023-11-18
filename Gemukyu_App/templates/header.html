@@ -22,7 +22,7 @@
                 <input class="no-submit" type="search" placeholder="Search Your Next Addiction :D" id="searchInput" name="searchInput" method="POST">
             </form> 
         </div>
-        <a href="shoppingCart">CART</a>
+        <a href="shoppingCart">CART ({{ numCartItems }})</a>
         {% if user.is_authenticated %}
             <a href="logout_user">LOG OUT</a>
         {% else %}

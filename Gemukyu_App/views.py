@@ -20,16 +20,20 @@ def game_list(request):
 
 def home(request):
     games = Games.objects.all()
-    return render(request,'home.html', {'games': games})
+    carts = Cart.objects.all()
+    numCartItems = Cart.objects.filter(user_id=request.user.id).count()
+    return render(request,'home.html', {'games': games, 'cart': carts, 'numCartItems': numCartItems})
 
 def shoppingCart(request):
     games = Games.objects.all()
+    numCartItems = Cart.objects.filter(user_id=request.user.id).count()
     for game in games:
         print(f"Title: {game.title}, Description: {game.description}, Publisher: {game.release_date}")
-    return render(request,'shoppingCart.html', {'games': games})
+    return render(request,'shoppingCart.html', {'games': games, 'numCartItems': numCartItems})
 
 def game_page(request):
     games = Games.objects.all()
+    numCartItems = Cart.objects.filter(user_id=request.user.id).count()
     if request.method == 'POST':
 
         game_id = request.POST.get('game_id')
@@ -37,14 +41,14 @@ def game_page(request):
 
         # coming from home page
         if (game_id is not None) and (game_id != ""):
-            return render(request,'game_page.html', {'games': games, 'game_id': game_id})
+            return render(request,'game_page.html', {'games': games, 'game_id': game_id, 'numCartItems': numCartItems})
         
         # coming from search bar
         if (search is not None) and (search != ""):
             try:
                 foundGame = Games.objects.get(title=search)
                 game_id = foundGame.game_id
-                return render(request,'game_page.html', {'games': games, 'game_id': game_id}) # found this game
+                return render(request,'game_page.html', {'games': games, 'game_id': game_id, 'numCartItems': numCartItems}) # found this game
             except:
                 print("ERROR: Couldn't find game with title '%s'." % search)
                 return redirect('home') # didn't find this game
@@ -59,14 +63,13 @@ def add_to_cart(request):
     if not request.user.is_authenticated:
         return redirect('login_user')
     
-    #game_id = request.POST.get(Games.game_id)
-    #print(game_id)
-    #time.sleep(1)
-    #testing to see if game id was passed
-
-    cartItem = Cart(game_id=Games.objects.get(game_id=192), user_id=request.user.id, quantity=1, cart_id=request.user.id)
-    cartItem.save()
-    return redirect('home')
+    game_id = request.POST.get('game_id')
+    if (game_id is not None) and (game_id != ""):
+        cartItem = Cart(game_id=Games.objects.get(game_id=game_id), user_id=request.user.id, quantity=1)
+        cartItem.save()
+        return redirect('home')
+    else:
+        return redirect('home')
 
 def order_confirmation(request):
     order_items = OrderItems.objects.filter(order_id=request.session.get('order_id', None))
@@ -157,14 +160,3 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('home')
-
-'''
-def search(request):
-    if request.method == 'POST':
-        search = request.POST['searchInput']
-        if Games.objects.filter(title__contains=search):
-            game_id = str(getattr(Games, 'game_id'))
-            return redirect('game_page') # found this game
-        else:
-            return redirect('home') # didn't find this game
-'''
