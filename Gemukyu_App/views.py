@@ -155,15 +155,9 @@ def login_user(request):
         username = request.POST['username']
         password = request.POST['password']
 
-        #user = User.objects.create_user('Test', 'email@email.com', 'Test')
-        #above code creates account, format: (username, email, password)
-
         user = authenticate(request, username=username, password=password)
-        print("here")
         if user is not None:
-            print("here v2")
             login(request, user)
-            print("here V...3!")
             return redirect('home')
         else:
             messages.info(request, 'Invalid Username or Password')
