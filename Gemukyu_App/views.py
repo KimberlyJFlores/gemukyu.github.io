@@ -196,3 +196,5 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('home')
+def checkout(request):
+    return render(request, 'checkout.html')

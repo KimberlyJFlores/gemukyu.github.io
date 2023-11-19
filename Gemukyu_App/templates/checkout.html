@@ -1,0 +1,95 @@
+<!doctype html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'checkout.css' %}">
+	<html lang="en">
+</head>
+<header>
+	{% include "header.html" %}
+</header>
+
+
+<div class="formcontainer">
+	<form action="{% url 'register' %}" method="POST" class="form-horizontal">
+		{% csrf_token%}
+			<div class="col-xs-8 col-xs-offset-4">
+				<h2 style="text-align:center;">PAYMENT DETAILS</h2>
+			</div>
+        <div class="cContainer">
+            <div class="formColumn">
+                <div class="formgroup">
+				    <label for="number">Card number</label>
+				    <input class="field" type="text" name="number" id="number" placeholder="Enter Number"
+				    Required>
+                 </div>
+                 <div class="formgroup">
+				    <label for="cvv">CVV</label>
+				    <input class="field" type="text" name="cvv" id="cvv" placeholder="Enter CVV"
+				    Required>
+                 </div>
+			    <div class="formgroup">
+				    <label for="name">Name on Card</label>
+				    <input class="field" type="text" name="name" id="name" placeholder="Enter Name on Card"
+				    Required>
+                 </div>
+                 <div class="formgroup">
+				    <label for="address">Billing Address</label>
+				    <input class="field" type="text" name="address" id="address" placeholder="Enter Address"
+				    Required>
+                 </div>
+             </div>
+             <div class="formColumn" style="padding-left:20px;">
+                 <div class="formgroup">
+                        <label for="city">City</label>
+                        <input class="field" type="text" name="city" id="city" placeholder="Enter City"
+                        Required>
+			    </div>
+                <div class="formgroup">
+                    <label for="state">State</label>
+                    <input class="field" type="text" name="state" id="state" placeholder="Enter State"
+                    Required>
+                </div>
+                <div class="formgroup">
+                    <label for="zip">Zip</label>
+                    <input class="field" type="text" name="zip" id="zip" placeholder="Enter Zip"
+                    Required>
+                </div>
+                <div class="formgroup">
+                    <label for="discountCode">Optional Discount</label>
+                    <input class="field" type="text" name="discountCode" id="discountCode" placeholder="Enter Code"
+                    >
+                </div>
+             </div>
+        </div>
+             <h4 style="text-align:right;">SUB TOTAL: $00.00</h4>
+            <h4 style="text-align:right;">TAX: $00.00</h4>
+            <h4 style="text-align:right;">GRAND TOTAL: $000.00</h4>
+			<div class="buttoncontainer" >
+				<button type="submit">SUBMIT</button>
+			</div>
+	</form>
+</div>
+<div class="form-group">
+	{% for message in messages %}
+	<div class="alert alert-danger" role="alert">
+		{{message}}
+	</div>
+	{% endfor %}
+</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<footer>
+	{% include "footer.html" %}
+	</footer>
+</body>
+</html>

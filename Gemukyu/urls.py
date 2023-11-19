@@ -33,5 +33,7 @@ urlpatterns = [
     path(r'order_confirmation/', views.order_confirmation, name='order_confirmation'),
     path(r'order_on_cart/', views.order_on_cart, name='order_on_cart'),
     path(r'remove_from_cart/', views.remove_from_cart, name='remove_from_cart'),
+    path(r'checkout/', views.checkout, name='checkout'),
+
     ]
 urlpatterns += staticfiles_urlpatterns()
