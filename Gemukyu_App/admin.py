@@ -1,9 +1,13 @@
 from django.contrib import admin
-from .models import Cart, Developers, Games, OrderItems, Orders, Publishers, Reviews, Wishlist, Users
+from .models import Cart, Developers, Games, OrderItems, Orders, Publishers, Reviews, Wishlist, Users, discount_codes
 
 @admin.register(Cart)
 class CartAdmin(admin.ModelAdmin):
     list_display = ('cart_id', 'user_id', 'game_id', 'quantity')
+
+@admin.register(discount_codes)
+class discountAdmin(admin.ModelAdmin):
+    list_display = ('discount_id', 'discount_name', 'discount_value')
 
 @admin.register(Developers)
 class DevelopersAdmin(admin.ModelAdmin):
