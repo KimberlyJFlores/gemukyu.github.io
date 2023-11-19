@@ -5,8 +5,8 @@
 <html>
 <body>
     <h1> ORDER PLACED!</h1>
-    <h2> A COPY OF YOUR ORDER HAS BEEN SENT TO YOUR EMAIL</h2>
-    <h2>HERE IS YOUR HAUL</h2>
+    <h2> ORDER #: {{ order_id }}</h2>
+    <h2>HERE IS YOUR HAUL.</h2>
     <div class="orderContainer">
         <div class="ordergameContainer">
             <div class="gameviewer">
@@ -19,7 +19,7 @@
                                 <tr>
                                     <td >
                                         <div class="gamecardinfoimgcontainer">
-                                            <img src="static/images/{{ game.small_pic }}" style="height:100px; width:100px">
+                                            <img src="{% static 'images/' %}{{ game.small_pic }}" style="height:100px; width:100px">
                                         </div>
                                     </td>
                                     <td><div class="gamecardinfo"> {{ game.title }}</div></td>
@@ -33,10 +33,9 @@
                 {% endfor %}
             </div>
     </div>
-        <h2 style="text-align:right;">TAX: $00.00<h2>
-        <h2 style="text-align:right;">TOTAL: $000.00<h2>
+        <h2 style="text-align:right;">GRAND TOTAL: ${{grand_total}}<h2>
     </div>
-    <button style="backtohome;box-shadow: 0px 1px 3px 0px black;">BACK TO HOME</button>
+    <a href="{% url 'home' %}"><button style="backtohome;box-shadow: 0px 1px 3px 0px black;">BACK TO HOME</button></a>
 </body>
 </html>
 {% include "footer.html" %}

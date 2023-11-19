@@ -117,9 +117,31 @@ def add_to_cart(request):
         return redirect('home')
 
 def order_confirmation(request):
-    order_items = OrderItems.objects.filter(order_id=request.session.get('order_id', None))
-    games = Games.objects.all()
-    return render(request, 'order_confirmation.html', {'games': games})
+    cart = Cart.objects.filter(user_id=request.user.id)
+    numCartItems = cart.count()
+    estimateTotal = 0
+
+    for cartItem in cart:
+        estimateTotal += cartItem.game_id.price
+
+    sales_tax = float(0.0825) * float(estimateTotal)
+    grand_total = '%.2f'%(float(estimateTotal) + float(sales_tax))
+
+    order = Orders.objects.filter(user_id=request.user.id)
+    order_items = OrderItems.objects.filter(order_id=1) # after billy finishes checkout
+    games = []
+    for game in order_items:
+        games.append(Games.objects.get(game_id=game.game_id))
+
+    context = {
+        'order_id' : 1,
+        'order': order,
+        'games': games,
+        'grand_total': grand_total,
+        'numCartItems': numCartItems
+    }
+    
+    return render(request, 'order_confirmation.html', context)
 
 def order_on_cart(request):
     cart_items = Cart.objects.filter(id=request.session.get('cart_id', None))

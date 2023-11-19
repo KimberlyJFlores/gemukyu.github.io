@@ -17,7 +17,7 @@ h1,h2{
 }
 .ordergameContainer{
   padding: 10px;
-  height: 70%;
+  height: 80%;
 }
 button{
     background-color: #36394A;
@@ -27,6 +27,10 @@ button{
     padding: 30px;
     font-size: large;
     color: #d9d9d9;
+}
+
+button:hover{
+    background-color: #252733;
 }
 .gamecard{
     height: auto;
