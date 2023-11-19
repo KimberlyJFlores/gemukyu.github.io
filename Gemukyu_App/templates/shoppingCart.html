@@ -58,12 +58,7 @@
             <div class="sales-tax-notice">
                 *Sales tax will be calculated at the checkout.
             </div>
-            </form action="{% url 'checkout' %}">
-              {% csrf_token %}
-              <button class="purchase-self-button" type="submit">
-                Purchase
-              </button>
-            </form>
+              <a href="{% url 'checkout' %}"><button class="purchase-self-button" type="submit">Purchase</button></a>
         </div>
         <form action="{% url 'home' %}">
             {% csrf_token %}

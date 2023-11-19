@@ -27,11 +27,16 @@ def home(request):
 
 def checkout(request):
     cart = Cart.objects.filter(user_id=request.user.id)
-    subtotal = sum([item.game.price * item.quantity for item in cart])
-    sales_tax = 0.0825 * subtotal  # Just an example for 8.25% sales tax
-    grand_total = subtotal + sales_tax
-    context: {
-        'cart': cart,
+    numCartItems = cart.count()
+    subtotal = 0
+
+    for cartItem in cart:
+        subtotal += cartItem.game_id.price
+
+    sales_tax = '%.2f'%(float(0.0825) * float(subtotal))  # Just an example for 8.25% sales tax
+    grand_total = '%.2f'%(float(subtotal) + float(sales_tax))
+    context= {
+        'numCartItems': numCartItems,
         'subtotal': subtotal,
         'sales_tax': sales_tax,
         'grand_total': grand_total
@@ -196,5 +201,3 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('home')
-def checkout(request):
-    return render(request, 'checkout.html')
