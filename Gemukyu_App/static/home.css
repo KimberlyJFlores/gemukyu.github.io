@@ -188,4 +188,5 @@ button {
     outline: none;
     margin: auto;
     display: block;
+    background-color: transparent;
   }
