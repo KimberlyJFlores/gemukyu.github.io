@@ -75,3 +75,8 @@ class Trending(models.Model):
 class Foryou(models.Model):
     foryou_id = models.AutoField(primary_key=True)
     game_id = models.ForeignKey(Games, on_delete=models.CASCADE)
+
+class discount_codes(models.Model):
+    discount_id = models.AutoField(primary_key=True)
+    discount_name = models.CharField(max_length=20)
+    discount_value = models.DecimalField(max_digits=3, decimal_places=2)
