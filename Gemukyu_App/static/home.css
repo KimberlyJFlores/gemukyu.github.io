@@ -73,7 +73,7 @@ html, body {
 }
 
 .gamethumbnailimgcontainer{
-    background: white;
+    background: transparent;
     width: 97%;
     height: 70%;
     overflow: hidden;
@@ -179,8 +179,7 @@ select {
     width: inherit;
     height: 95%;
     overflow: hidden;
-    background: white;
-    box-shadow: 0px 1px 3px 0px black;
+    background: transparent;
 }
 button {
     border: none;
@@ -190,3 +189,6 @@ button {
     display: block;
     background-color: transparent;
   }
+img{
+    object-fit: contain;
+}
