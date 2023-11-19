@@ -72,7 +72,7 @@ def remove_from_cart(request):
 
     if (cart_item.user_id == request.user.id):
         cart_item.delete()
-        messages.success(request, "Item removed from your cart.")
+        #messages.success(request, "Item removed from your cart.")
     
     return redirect('shoppingCart')
 
