@@ -54,7 +54,7 @@ html, body {
     background-color: #36394a;
     height: 400px;
     padding: 20px;
-    width: 90%; 
+    width: 75%; 
     margin: 0 auto; /* Centers the box horizontally */
     overflow-y: auto; /* Adds a scrollbar if needed */
     scrollbar-color: grey; /* Scrollbar color */
@@ -64,9 +64,8 @@ html, body {
   
   /* Cart Item */
   .cart-item {
-    font-size: x-large;
+    font-size: large;
     font-weight: bold;
-    padding-left: 475px;
     color: white;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Adds shadows for depth */
     border-radius: 5px;
@@ -75,12 +74,24 @@ html, body {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
-   
+    width: inherit;
+    padding-left: 30px;
+    padding-right: 30px;
+    justify-content: space-between;
   }
   
   /* Remove Item Button */
-  .remove-button {
-    /* Need the remove button (hollow X Icon) */
+  button.remove-button {
+    background-color: darkred;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(0, 0, 0, 0.2), 0 5px 0 rgba(0, 0, 0, 0.2); /* Adds shadows to left, right, and bottom */
+  }
+
+  button.remove-button:hover {
+    background-color: rgb(92, 1, 1);
   }
   
   /* Total Box */
@@ -91,7 +102,7 @@ html, body {
     background-color: #36394a;
     height: 375px;
     padding: 20px;
-    width: 90%; 
+    width: 75%; 
     margin: 0 auto; /* Centers the box horizontally */
     margin-top: -5px; /* Spacing */
   }
@@ -152,7 +163,7 @@ html, body {
     border-radius: 5px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Adds shadows for depth */
     bottom: 20px;
-    right: 325px;
+    right: 20px;
     padding: 20px 40px;
     background-color: #2B4f31; /* green background, white text */
     color: white;
@@ -162,14 +173,19 @@ html, body {
     border: none;
     cursor: pointer;
   }
+
+  .purchase-self-button:hover {
+    background-color: #182e1c; /* green background, white text */
+  }
   
   /* Sales Tax Notice */
   .sales-tax-notice {
     color: yellow;
     position: absolute;
     font-weight: lighter;
-    left: 20px;
+    left: 10px;
     padding: 10px;
+    top: 100px;
   }
   
   /* Continue Shopping Button */
@@ -177,7 +193,7 @@ html, body {
     position: absolute;
     border-radius: 5px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Adds shadows for depth */
-    bottom: 50px;
+    bottom: 100px;
     left: 40px;
     padding: 20px 40px;
     background-color: #344177; /* blue background, white text */
@@ -187,6 +203,10 @@ html, body {
     font-display: center;
     border: none;
     cursor: pointer;
+  }
+
+  .continue-shopping-button:hover {
+    background-color: #242e56; /* blue background, white text */
   }
   
   /* Remove All Link */

@@ -33,42 +33,42 @@
             {% for cartItem in cart %}
             <form action="{% url 'remove_from_cart' %}" method="POST" name="cart_item_id" value="{{ cartItem.cart_id }}">
                 {% csrf_token %}
-                <button type="submit" name="cart_item_id" value="{{ cartItem.cart_id }}" method="POST">
                 <div class="cart-item">
-                    {{ cartItem.game_id.title }}
-                    <!-- Individual cart item content here -->
+                    <div><img src="/static/images/{{ cartItem.game_id.small_pic}}" style="height:inherit; width:150px"></div>
+                    <div>TITLE: {{ cartItem.game_id.title }}</div>
+                    <div>PRICE: ${{ cartItem.game_id.price }}</div>
+                    <button type="submit" name="cart_item_id" value="{{ cartItem.cart_id }}" method="POST" class="remove-button">
+                        X Remove
+                    </button>
                 </div>
                 <!-- Repeat the cart item structure for each item -->
-                </button>
+                
             </form>
             {% endfor %}
         {% endif %}
     </div>
-
-
-
     <div class="total-box">
         <div class="total-item">
             <div class="top-left">
-                Estimate total:
+                Subtotal:
             </div>
             <div class="top-right">
-                $ {{ estimateTotal }}
+                ${{ estimateTotal }}
             </div>
-              <button class="purchase-gift-button">
-                Purchase as a gift
+            <div class="sales-tax-notice">
+                *Sales tax will be calculated at the checkout.
+            </div>
+            </form action="{% url 'checkout' %}">
+              {% csrf_token %}
+              <button class="purchase-self-button" type="submit">
+                Purchase
               </button>
-              <button class="purchase-self-button">
-                Purchase for myself
-              </button>
+            </form>
         </div>
-        <div class="sales-tax-notice">
-            *Sales tax will be calculated at the checkout.
-        </div>
-
-        <button class="continue-shopping-button">Continue Shopping</button>
-        <a href="#" class="remove-all-link">Remove All</a>
-
+        <form action="{% url 'home' %}">
+            {% csrf_token %}
+            <button class="continue-shopping-button" type="submit">Continue Shopping</button>
+        </form>
     </div>
     {% include "footer.html" %}
 </body>

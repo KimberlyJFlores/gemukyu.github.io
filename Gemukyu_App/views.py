@@ -25,9 +25,21 @@ def home(request):
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
     return render(request,'home.html', {'games': games, 'cart': carts, 'numCartItems': numCartItems})
 
+def checkout(request):
+    cart = Cart.objects.filter(user_id=request.user.id)
+    subtotal = sum([item.game.price * item.quantity for item in cart])
+    sales_tax = 0.0825 * subtotal  # Just an example for 8.25% sales tax
+    grand_total = subtotal + sales_tax
+    context: {
+        'cart': cart,
+        'subtotal': subtotal,
+        'sales_tax': sales_tax,
+        'grand_total': grand_total
+        }
+    return render(request,'checkout.html', context)
+
 @login_required(login_url='login_user')
 def shoppingCart(request):
-    #games = Games.objects.all()
     cart = Cart.objects.filter(user_id=request.user.id)
     numCartItems = cart.count()
     estimateTotal = 0
@@ -35,14 +47,16 @@ def shoppingCart(request):
     for cartItem in cart:
         estimateTotal += cartItem.game_id.price
 
-    #print (estimateTotal)
-    context = {#'games': games, 
+    sales_tax = float(0.0825) * float(estimateTotal)
+    grand_total = float(estimateTotal) + float(sales_tax)
+
+    context = { 
                'numCartItems': numCartItems,
                'cart': cart,
-               'estimateTotal': estimateTotal}
+               'sales_tax': sales_tax,
+               'estimateTotal': estimateTotal,
+               'grand_total': grand_total}
 
-    #for game in games:
-    #    print(f"Title: {game.title}, Description: {game.description}, Publisher: {game.release_date}")
     return render(request,'shoppingCart.html', context)
 
 @login_required(login_url='login_user')
@@ -105,7 +119,7 @@ def order_confirmation(request):
 def order_on_cart(request):
     cart_items = Cart.objects.filter(id=request.session.get('cart_id', None))
     total_price = sum([item.game.price * item.quantity for item in cart_items])
-    sales_tax = 0.082 * total_price  # Just an example for 8.2% sales tax
+    sales_tax = 0.0825 * total_price  # Just an example for 8.25% sales tax
     grand_total = total_price + sales_tax
     
     context = {
