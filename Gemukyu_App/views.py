@@ -6,12 +6,19 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django_tables2 import SingleTableView
 #from django.template import loader
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from tables.py import GamesTable
 import time #for testing purposes
+
+class GamesListView(SingleTableView):
+    model = Games
+    table_class = GamesTable
+    template_name = 'gamelist.html'
 
 def game_list(request):
     games = Games.objects.all()
