@@ -7,18 +7,23 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django_tables2 import SingleTableView
+from django_filters.views import FilterView
+from django_tables2.views import SingleTableMixin
 #from django.template import loader
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from tables.py import GamesTable
+from .tables import GamesTable
+from .filters import GamesFilter
 import time #for testing purposes
 
-class GamesListView(SingleTableView):
-    model = Games
+class GamesListView(SingleTableMixin, FilterView):
     table_class = GamesTable
+    model = Games
     template_name = 'gamelist.html'
+
+    filterset_class = GamesFilter
 
 def game_list(request):
     games = Games.objects.all()
@@ -29,8 +34,12 @@ def game_list(request):
 def home(request):
     games = Games.objects.all()
     carts = Cart.objects.all()
+
+    gameFilter = GamesFilter()
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
-    return render(request,'home.html', {'games': games, 'cart': carts, 'numCartItems': numCartItems})
+
+    context = {'games': games, 'cart': carts, 'numCartItems': numCartItems, 'gameFilter': gameFilter}
+    return render(request,'home.html', context)
 
 def checkout(request):
     cart = Cart.objects.filter(user_id=request.user.id)
