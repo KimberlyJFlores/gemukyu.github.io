@@ -35,7 +35,7 @@ def home(request):
     games = Games.objects.all()
     carts = Cart.objects.all()
 
-    gameFilter = GamesFilter()
+    gameFilter = GamesFilter(request.GET, queryset=Games.objects.all())
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
 
     context = {'games': games, 'cart': carts, 'numCartItems': numCartItems, 'gameFilter': gameFilter}
