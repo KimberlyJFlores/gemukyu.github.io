@@ -15,7 +15,7 @@ class GamesTable(tables.Table):
     class Meta:
         model = Games
         row_attrs = {
-            "onClick": lambda record: "document.location.href='game_page';".format(record.game_id)
+            "onClick": lambda record: "document.location.href='/game_page/{0}';".format(record.game_id)
         }
         template_name = "django_tables2/bootstrap.html" #there are multiple bootstrap types in django_tables2 - experiment with diff versions
         fields = ("small_pic", "title", "genre", "release_date", "price")
