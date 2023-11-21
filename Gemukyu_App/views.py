@@ -180,6 +180,9 @@ def order_on_cart(request):
 
 
 def register(request):
+    numCartItems = Cart.objects.filter(user_id=request.user.id).count()
+    if numCartItems is None or numCartItems == "":
+        numCartItems = 0
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -210,7 +213,7 @@ def register(request):
             
 
     else:
-        return render(request, 'registration.html')
+        return render(request, 'registration.html',{'numCartItems':numCartItems})
     
 def login_user(request):
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
