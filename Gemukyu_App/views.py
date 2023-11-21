@@ -91,11 +91,10 @@ def remove_from_cart(request):
     
     return redirect('shoppingCart')
 
-def game_page(request):
+def game_page(request, g_id=192):
     games = Games.objects.all()
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
     if request.method == 'POST':
-
         game_id = request.POST.get('game_id')
         search = request.POST.get('searchInput')
 
@@ -112,7 +111,14 @@ def game_page(request):
             except:
                 print("ERROR: Couldn't find game with title '%s'." % search)
                 return redirect('home') # didn't find this game
+    else:
+        games = Games.objects.all()
+        numCartItems = Cart.objects.filter(user_id=request.user.id).count()
 
+        if (g_id is not None) and (g_id != ""):
+            return render(request,'game_page.html', {'games': games, 'game_id': g_id, 'numCartItems': numCartItems})
+        return redirect('home')
+            
 def account_page(request):
     return render(request,'account.html');
 

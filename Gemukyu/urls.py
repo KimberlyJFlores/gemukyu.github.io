@@ -25,6 +25,7 @@ urlpatterns = [
     path(r'games/', game_list, name='game_list'),
     path(r'shoppingCart/', shoppingCart, name='shoppingCart'),
     path(r'game_page/', views.game_page, name='game_page'),
+    path('game_page/<int:g_id>/', views.game_page, name='game_pageId'),
     path(r'game_page/add_to_cart/', views.add_to_cart, name='add_to_cart'),
     path(r'register/', views.register, name='register'),
     path(r'login_user/', views.login_user, name='login_user'),
