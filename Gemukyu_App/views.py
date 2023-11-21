@@ -23,11 +23,15 @@ def home(request):
     games = Games.objects.all()
     carts = Cart.objects.all()
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
+    if numCartItems is None or numCartItems == "":
+        numCartItems = 0
     return render(request,'home.html', {'games': games, 'cart': carts, 'numCartItems': numCartItems})
 
 def checkout(request):
     cart = Cart.objects.filter(user_id=request.user.id)
     numCartItems = cart.count()
+    if numCartItems is None or numCartItems == "":
+        numCartItems = 0
     subtotal = 0
 
     for cartItem in cart:
@@ -47,6 +51,8 @@ def checkout(request):
 def shoppingCart(request):
     cart = Cart.objects.filter(user_id=request.user.id)
     numCartItems = cart.count()
+    if numCartItems is None or numCartItems == "":
+        numCartItems = 0
     estimateTotal = 0
 
     for cartItem in cart:
@@ -79,6 +85,8 @@ def remove_from_cart(request):
 def game_page(request):
     games = Games.objects.all()
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
+    if numCartItems is None or numCartItems == "":
+        numCartItems = 0
     if request.method == 'POST':
 
         game_id = request.POST.get('game_id')
@@ -119,6 +127,8 @@ def add_to_cart(request):
 def order_confirmation(request):
     cart = Cart.objects.filter(user_id=request.user.id)
     numCartItems = cart.count()
+    if numCartItems is None or numCartItems == "":
+        numCartItems = 0
     estimateTotal = 0
 
     for cartItem in cart:
@@ -203,6 +213,9 @@ def register(request):
         return render(request, 'registration.html')
     
 def login_user(request):
+    numCartItems = Cart.objects.filter(user_id=request.user.id).count()
+    if numCartItems is None or numCartItems == "":
+        numCartItems = 0
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -214,11 +227,8 @@ def login_user(request):
         else:
             messages.info(request, 'Invalid Username or Password')
             return redirect('login_user')
-
-
-
     else:
-        return render(request, 'login.html')
+        return render(request, 'login.html', {'numCartItems': numCartItems})
     
 def logout_user(request):
     logout(request)

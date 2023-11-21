@@ -31,10 +31,12 @@
             <label for="password">Password</label>
             <input class="field" type="password" name="password" id="password" placeholder="Enter Password" Required>
         </div>
-        <div class="buttoncontainer">
-            <button type="submit">LOGIN</button>
-            <a class="register" href="{% url 'register' %}" role="button">SIGN UP</a>
+        <div align="center">
+            <div class="buttoncontainer">
+                <button type="submit">LOGIN</button>
+            </div>
         </div>
+        <h3 style="padding-bottom: 10px">Don't have an account? <a class="register" href="{% url 'register' %}" role="button">Sign up</a> here</h3>
     </form>
 </div>
 <div class="form-group">
