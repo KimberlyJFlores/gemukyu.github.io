@@ -7,8 +7,11 @@
         <title>List of Games</title>
         <link rel="stylesheet" type="text/css" href="{% static 'gamelist.css' %}">
     </head>
-    <body class="gameviewer">
-        
+    <head>
+        {% include "header.html" %}
+    </head>
+    <body>
+        <br>
         {% if filter %}
             <form action="" method="get" class="form form-inline">
                 {% bootstrap_form filter.form layout='inline' %}
@@ -16,5 +19,6 @@
             </form>
         {% endif %}
         {% render_table table 'django_tables2/bootstrap.html' %}
+        {% include "footer.html" %}
     </body>
 </html>

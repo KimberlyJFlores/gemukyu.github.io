@@ -16,12 +16,13 @@
                 <img src="/static/images/GemukyuHomeIcon.png" alt="No Logo, Check the code!" style="height: 100px;">
             </div>
         </a>
-        <div class="search-container" style="border-right-style: solid;border-right-width: 0px;width: 55%;">
+        <div class="search-container" style="border-right-style: solid;border-right-width: 0px;width: 35%;">
             <form action="{% url 'game_page' %}" method="POST" style="width: 100%;">
                 {% csrf_token %}
                 <input class="no-submit" type="search" placeholder="Search Your Next Addiction :D" id="searchInput" name="searchInput" method="POST">
             </form> 
         </div>
+        <a href="{% url 'gamelist' %}">SORT GAMES</a>
         <a href="{% url 'shoppingCart' %}">CART ({{ numCartItems }})</a>
         {% if user.is_authenticated %}
             <a href="{% url 'logout_user' %}">LOG OUT</a>

@@ -5,7 +5,7 @@ from .models import Games
 class ImageColumn(tables.Column):
     def render(self, value):
         return format_html(
-            '<img src="/static/images/{url}" height="50px", width="50px">',
+            '<img src="/static/images/{url}" height="100px", width="175px">',
             url=value
         )
 
