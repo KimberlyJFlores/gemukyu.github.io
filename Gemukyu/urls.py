@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Gemukyu_App import views
-from Gemukyu_App.views import game_list, home, shoppingCart
+from Gemukyu_App.views import game_list, home, shoppingCart, GamesListView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('', views.home, name='home'),
@@ -25,6 +25,7 @@ urlpatterns = [
     path(r'games/', game_list, name='game_list'),
     path(r'shoppingCart/', shoppingCart, name='shoppingCart'),
     path(r'game_page/', views.game_page, name='game_page'),
+    path('game_page/<int:g_id>/', views.game_page, name='game_pageId'),
     path(r'game_page/add_to_cart/', views.add_to_cart, name='add_to_cart'),
     path(r'register/', views.register, name='register'),
     path(r'login_user/', views.login_user, name='login_user'),
@@ -34,6 +35,6 @@ urlpatterns = [
     path(r'order_on_cart/', views.order_on_cart, name='order_on_cart'),
     path(r'remove_from_cart/', views.remove_from_cart, name='remove_from_cart'),
     path(r'checkout/', views.checkout, name='checkout'),
-
+    path('gamelist/', GamesListView.as_view())
     ]
 urlpatterns += staticfiles_urlpatterns()

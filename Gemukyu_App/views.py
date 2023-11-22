@@ -6,13 +6,24 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django_tables2 import SingleTableView
+from django_filters.views import FilterView
+from django_tables2.views import SingleTableMixin
 #from django.template import loader
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from .tables import GamesTable
+from .filters import GamesFilter
 import time #for testing purposes
 
+class GamesListView(SingleTableMixin, FilterView):
+    table_class = GamesTable
+    model = Games
+    template_name = 'gamelist.html'
+    filterset_class = GamesFilter
+    
 def game_list(request):
     games = Games.objects.all()
     for game in games:
@@ -22,6 +33,8 @@ def game_list(request):
 def home(request):
     games = Games.objects.all()
     carts = Cart.objects.all()
+
+    gameFilter = GamesFilter(request.GET, queryset=Games.objects.all())
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
     if numCartItems is None or numCartItems == "":
         numCartItems = 0
@@ -84,13 +97,12 @@ def remove_from_cart(request):
     
     return redirect('shoppingCart')
 
-def game_page(request):
+def game_page(request, g_id=192):
     games = Games.objects.all()
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
     if numCartItems is None or numCartItems == "":
         numCartItems = 0
     if request.method == 'POST':
-
         game_id = request.POST.get('game_id')
         search = request.POST.get('searchInput')
 
@@ -107,7 +119,14 @@ def game_page(request):
             except:
                 print("ERROR: Couldn't find game with title '%s'." % search)
                 return redirect('home') # didn't find this game
+    else:
+        games = Games.objects.all()
+        numCartItems = Cart.objects.filter(user_id=request.user.id).count()
 
+        if (g_id is not None) and (g_id != ""):
+            return render(request,'game_page.html', {'games': games, 'game_id': g_id, 'numCartItems': numCartItems})
+        return redirect('home')
+            
 def account_page(request):
     return render(request,'account.html');
 
