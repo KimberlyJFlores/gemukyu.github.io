@@ -16,6 +16,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .tables import GamesTable
 from .filters import GamesFilter
+import datetime
 import time #for testing purposes
 
 class GamesListView(SingleTableMixin, FilterView):
@@ -79,12 +80,21 @@ def purchaseCart(request):
     subtotal = sum(item.game_id.price for item in cart)
     sales_tax = '%.2f'%(float(0.0825) * float(subtotal))
     grand_total = '%.2f'%(float(subtotal) + float(sales_tax))
-    discounted_total = grand_total * cart.applied_discount
 
-    
+    #discounted_total = grand_total * cart.applied_discount
 
+    newOrder = Orders.objects.create(user_id=request.user.id, 
+                                     order_date=datetime.date.today(), total_amount=grand_total)
+    newOrder.save()
 
-    return redirect('order_confirmation')
+    for cartItem in cart:
+        newOrderItem = OrderItems.objects.create(order_id=newOrder.order_id,
+                                          game_id=cartItem.game_id.game_id, quantity=1, 
+                                          item_price=cartItem.game_id.price)
+        newOrderItem.save()
+        cartItem.delete()
+
+    return redirect('order_confirmation', o_id=newOrder.order_id)
 
 @login_required(login_url='login_user')
 def shoppingCart(request):
@@ -169,7 +179,7 @@ def add_to_cart(request):
     else:
         return redirect('home')
 
-def order_confirmation(request):
+def order_confirmation(request, o_id):
     cart = Cart.objects.filter(user_id=request.user.id)
     numCartItems = cart.count()
     if numCartItems is None or numCartItems == "":
@@ -179,17 +189,23 @@ def order_confirmation(request):
     for cartItem in cart:
         estimateTotal += cartItem.game_id.price
 
-    sales_tax = float(0.0825) * float(estimateTotal)
-    grand_total = '%.2f'%(float(estimateTotal) + float(sales_tax))
+    order_id = o_id
 
-    order = Orders.objects.filter(user_id=request.user.id)
-    order_items = OrderItems.objects.filter(order_id=1) # after billy finishes checkout
+    order = Orders.objects.filter(order_id=order_id)
+    order_items = OrderItems.objects.filter(order_id=order_id) # after billy finishes checkout
     games = []
     for game in order_items:
         games.append(Games.objects.get(game_id=game.game_id))
 
+    subtotal = 0
+
+    for item in order_items:
+        subtotal += item.item_price * item.quantity 
+
+    grand_total = '%.2f'%(float(subtotal) * float(1.0825))
+    
     context = {
-        'order_id' : 1,
+        'order_id' : order_id,
         'order': order,
         'games': games,
         'grand_total': grand_total,
