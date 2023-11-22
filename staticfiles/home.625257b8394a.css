@@ -1,0 +1,194 @@
+html, body {
+    background-color: #523C3C;
+
+    font-family: 'Arial';
+    background: linear-gradient(0deg, rgba(54,57,74,1) 0%, rgba(82,60,60,1) 50%);
+    background-attachment: fixed;
+    color: #d9d9d9;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #24282f;
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+.gamebanner{
+    background-color: #24282f;
+    height: 300px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    size:70px;
+    font-size: large;
+    box-shadow: 0px 1px 3px 0px black;
+    overflow: hidden;
+}
+
+.gamescroller{
+    height: 175px;
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    overflow-x:scroll;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    margin: 0 0.6% 0 0.6%;
+    padding-bottom: 15px;
+}
+.gamecontainer{
+    background-color: #24282f;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 0 0 auto;
+    margin-top: 2px;
+    justify-content: center;
+    margin-right: 6px;
+    width: 280px;
+    height: 200px;
+    box-shadow: 0px 3px 3px 0px black;
+    vertical-align: center;
+}
+
+.gamethumbnailimgcontainer{
+    background: transparent;
+    width: 97%;
+    height: 70%;
+    overflow: hidden;
+    margin-top: 2%;
+    color: #24282f;
+}
+
+.gamethumbnailtextcontainer{
+    width: inherit;
+    height: 30%;
+    color: white;
+    text-shadow: black;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5%;
+}
+
+text{
+    display: flex;
+    margin-left:15px;
+    margin-top: 20px;
+    text-shadow: 0px 2px 1px black;
+}
+line{
+    display: block;
+    height: 1px;
+    border: none;
+    border-top: 1px solid #575D75;
+}
+.bottomcontainer{
+    width: auto;
+    display: block;
+    flex-wrap: wrap;
+    flex: 0 0 auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding-top:5px;
+    width: auto;
+    height: 500px;
+    justify-content: center;
+    background-color: #24282f;
+    margin-left: 0.6%;
+    margin-right: 0.6%;
+}
+.selectbar{
+    display: flex;
+    background-color: #24282f;
+    height: 25px;
+    width: 100%;
+    color: #d9d9d9;
+    justify-content: space-evenly;
+    padding-bottom: 5px;
+    box-shadow: inset 0px -1.3px 2px 0px black;
+}
+.select-items{
+    width:200px;
+    color: #d9d9d9;
+    background-color: #595B70;
+}
+select {
+    background: #595B70;
+    color: #d9d9d9;
+    border: none;
+    padding-left:15px;
+    padding-right:15px;
+}
+.gameviewer{
+    width:100%;
+    height: 100%;
+    background:rgb(17, 18, 23);
+    justify-content: center;
+    overflow-y: scroll;
+    display: block;
+}
+.gamecard{
+    background-color: #24282f;
+    height: 120px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right:10px;
+    justify-content: center;
+    width:auto;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: 0px 1px 3px 0px black;
+    align-items: center;
+}
+.gamecard:active{
+    border-style: outset;
+    border: none;
+    cursor: pointer;
+}
+
+.gamecardinfo{
+    padding: 0 2% 0 2%;
+    width: inherit;
+    color:white;
+}
+
+.gamecardinfoimgcontainer{
+    width: inherit;
+    height: 95%;
+    overflow: hidden;
+    background: transparent;
+}
+button {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin: auto;
+    display: block;
+    background-color: transparent;
+  }
+img{
+    object-fit: contain;
+}
