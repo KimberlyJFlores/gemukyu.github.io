@@ -20,6 +20,7 @@ class Cart(models.Model):
     user_id = models.IntegerField()
     game_id = models.ForeignKey(Games, on_delete=models.CASCADE)
     quantity = models.IntegerField()
+    applied_discount = models.DecimalField(max_digits=3, decimal_places=2, default=0)
 
 class Developers(models.Model):
     developer_id = models.AutoField(primary_key=True)
@@ -38,6 +39,7 @@ class Orders(models.Model):
     user_id = models.IntegerField()
     order_date = models.DateTimeField()
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    applied_discount = models.DecimalField(max_digits=3, decimal_places=2, default=0)
 
 class Publishers(models.Model):
     publisher_id = models.AutoField(primary_key=True)

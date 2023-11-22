@@ -1,7 +1,7 @@
 
 
 # Create your views here.
-
+import logging
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
@@ -16,6 +16,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .tables import GamesTable
 from .filters import GamesFilter
+import datetime
 import time #for testing purposes
 
 class GamesListView(SingleTableMixin, FilterView):
@@ -43,24 +44,64 @@ def home(request):
     return render(request,'home.html', context)
 
 def checkout(request):
+    #logging.warning("OH NOOOO")
     cart = Cart.objects.filter(user_id=request.user.id)
     numCartItems = cart.count()
     if numCartItems is None or numCartItems == "":
         numCartItems = 0
-    subtotal = 0
 
-    for cartItem in cart:
-        subtotal += cartItem.game_id.price
-
+    subtotal = sum(item.game_id.price for item in cart)
     sales_tax = '%.2f'%(float(0.0825) * float(subtotal))  # Just an example for 8.25% sales tax
     grand_total = '%.2f'%(float(subtotal) + float(sales_tax))
-    context= {
+
+    try:
+        discount = discount_codes.objects.get(discount_name=discount_codes).discount_value
+    except discount_codes.DoesNotExist:
+            discount = 0
+
+    discounted_subtotal = subtotal - discount
+    sales_tax = '%.2f'%(float(0.0825) * float(discounted_subtotal))
+    grand_total = '%.2f'%(float(discounted_subtotal) + float(sales_tax))
+  
+    context = {
         'numCartItems': numCartItems,
         'subtotal': subtotal,
+        'discount': discount,
         'sales_tax': sales_tax,
         'grand_total': grand_total
-        }
+    }
     return render(request,'checkout.html', context)
+
+def purchaseCart(request):
+    #logging.warning("oh ok")
+    cart = Cart.objects.filter(user_id=request.user.id)
+    subtotal = sum(item.game_id.price for item in cart)
+    sales_tax = '%.2f'%(float(0.0825) * float(subtotal))
+    grand_total = '%.2f'%(float(subtotal) + float(sales_tax))
+    actual_discount = 0
+    if request.method == 'POST':
+        check_discount = request.POST.get("discountCode")
+        print(check_discount)
+        if check_discount is not None or check_discount != "":
+
+            try:
+                discount_code = discount_codes.objects.get(discount_name=check_discount)
+                actual_discount = discount_code.discount_value
+                print(actual_discount)
+            except:
+                actual_discount = 0
+    newOrder = Orders.objects.create(user_id=request.user.id, 
+                                     order_date=datetime.date.today(), total_amount=grand_total, applied_discount=actual_discount)
+    newOrder.save()
+
+    for cartItem in cart:
+        newOrderItem = OrderItems.objects.create(order_id=newOrder.order_id,
+                                          game_id=cartItem.game_id.game_id, quantity=1, 
+                                          item_price=cartItem.game_id.price)
+        newOrderItem.save()
+        cartItem.delete()
+
+    return redirect('order_confirmation', o_id=newOrder.order_id)
 
 @login_required(login_url='login_user')
 def shoppingCart(request):
@@ -145,7 +186,7 @@ def add_to_cart(request):
     else:
         return redirect('home')
 
-def order_confirmation(request):
+def order_confirmation(request, o_id):
     cart = Cart.objects.filter(user_id=request.user.id)
     numCartItems = cart.count()
     if numCartItems is None or numCartItems == "":
@@ -155,17 +196,30 @@ def order_confirmation(request):
     for cartItem in cart:
         estimateTotal += cartItem.game_id.price
 
-    sales_tax = float(0.0825) * float(estimateTotal)
-    grand_total = '%.2f'%(float(estimateTotal) + float(sales_tax))
+    order_id = o_id
 
-    order = Orders.objects.filter(user_id=request.user.id)
-    order_items = OrderItems.objects.filter(order_id=1) # after billy finishes checkout
+    order = Orders.objects.get(order_id=order_id)
+    order_items = OrderItems.objects.filter(order_id=order_id) # after billy finishes checkout
     games = []
     for game in order_items:
         games.append(Games.objects.get(game_id=game.game_id))
 
+    subtotal = 0
+
+    for item in order_items:
+        subtotal += item.item_price * item.quantity 
+
+    print(order.applied_discount)
+
+    try:
+        print('yes')
+        grand_total = '%.2f'%(float(subtotal) * float(1.0825) * (1 - float(order.applied_discount)))
+    except:
+        print('ew')   
+        grand_total = '%.2f'%(float(subtotal) * float(1.0825))
+    
     context = {
-        'order_id' : 1,
+        'order_id' : order_id,
         'order': order,
         'games': games,
         'grand_total': grand_total,

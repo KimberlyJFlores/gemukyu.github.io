@@ -31,10 +31,11 @@ urlpatterns = [
     path(r'login_user/', views.login_user, name='login_user'),
     path(r'logout_user/', views.logout_user, name='logout_user'),
     path(r'account/',views.account_page,name='account'),
-    path(r'order_confirmation/', views.order_confirmation, name='order_confirmation'),
+    path(r'purchaseCart/order_confirmation/<int:o_id>', views.order_confirmation, name='order_confirmation'),
     path(r'order_on_cart/', views.order_on_cart, name='order_on_cart'),
     path(r'remove_from_cart/', views.remove_from_cart, name='remove_from_cart'),
     path(r'checkout/', views.checkout, name='checkout'),
-    path('gamelist/', GamesListView.as_view(), name='gamelist')
+    path('gamelist/', GamesListView.as_view(), name='gamelist'),
+    path('purchaseCart/', views.purchaseCart, name='purchaseCart'),
     ]
 urlpatterns += staticfiles_urlpatterns()
