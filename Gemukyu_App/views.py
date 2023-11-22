@@ -1,7 +1,6 @@
 
 
 # Create your views here.
-import logging
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
