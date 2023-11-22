@@ -47,19 +47,27 @@ def checkout(request):
     numCartItems = cart.count()
     if numCartItems is None or numCartItems == "":
         numCartItems = 0
-    subtotal = 0
 
-    for cartItem in cart:
-        subtotal += cartItem.game_id.price
-
+    subtotal = sum(item.game_id.price for item in cart)
     sales_tax = '%.2f'%(float(0.0825) * float(subtotal))  # Just an example for 8.25% sales tax
     grand_total = '%.2f'%(float(subtotal) + float(sales_tax))
-    context= {
+
+    try:
+        discount = discount_codes.objects.get(discount_name=discount_codes).discount_value
+    except discount_codes.DoesNotExist:
+            discount = 0
+
+    discounted_subtotal = subtotal - discount
+    sales_tax = '%.2f'%(float(0.0825) * float(discounted_subtotal))
+    grand_total = '%.2f'%(float(discounted_subtotal) + float(sales_tax))
+  
+    context = {
         'numCartItems': numCartItems,
         'subtotal': subtotal,
+        'discount': discount,
         'sales_tax': sales_tax,
         'grand_total': grand_total
-        }
+    }
     return render(request,'checkout.html', context)
 
 @login_required(login_url='login_user')

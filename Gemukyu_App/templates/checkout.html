@@ -10,7 +10,7 @@
 
 
 <div class="formcontainer">
-	<form action="{% url 'register' %}" method="POST" class="form-horizontal">
+	<form action="{% url 'checkout' %}" method="POST" class="form-horizontal">
 		{% csrf_token%}
 			<div class="col-xs-8 col-xs-offset-4">
 				<h2 style="text-align:center;">PAYMENT DETAILS</h2>
@@ -61,12 +61,15 @@
                 </div>
              </div>
         </div>
+		<div class="buttoncontainer" style="padding-top: 0px;padding-bottom: 0px;padding-left: 200px;">
+			<a class="submit">Apply</a>
+		</div>
              <h4 style="text-align:right;">SUB TOTAL: ${{subtotal}}</h4>
-			 <h4 style="text-align:right;">DISCOUNT: -$0.00</h4>
+			 <h4 style="text-align:right;">DISCOUNT: -${{discount}}</h4>
             <h4 style="text-align:right;">TAX: ${{sales_tax}}</h4>
             <h4 style="text-align:right;">GRAND TOTAL: ${{grand_total}}</h4>
 			<div class="buttoncontainer" >
-				<button type="submit">SUBMIT</button>
+				<a href="{% url 'order_confirmation' %}" class="submit">SUBMIT</a>
 			</div>
 	</form>
 </div>
