@@ -1,7 +1,7 @@
 
 
 # Create your views here.
-
+import logging
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
@@ -44,6 +44,7 @@ def home(request):
     return render(request,'home.html', context)
 
 def checkout(request):
+    #logging.warning("OH NOOOO")
     cart = Cart.objects.filter(user_id=request.user.id)
     numCartItems = cart.count()
     if numCartItems is None or numCartItems == "":
@@ -72,20 +73,23 @@ def checkout(request):
     return render(request,'checkout.html', context)
 
 def purchaseCart(request):
+    #logging.warning("oh ok")
     cart = Cart.objects.filter(user_id=request.user.id)
     subtotal = sum(item.game_id.price for item in cart)
     sales_tax = '%.2f'%(float(0.0825) * float(subtotal))
     grand_total = '%.2f'%(float(subtotal) + float(sales_tax))
     actual_discount = 0
     if request.method == 'POST':
-        check_discount = request.POST.get('discountCode')
+        check_discount = request.POST.get("discountCode")
+        print(check_discount)
         if check_discount is not None or check_discount != "":
+
             try:
                 discount_code = discount_codes.objects.get(discount_name=check_discount)
                 actual_discount = discount_code.discount_value
+                print(actual_discount)
             except:
                 actual_discount = 0
-
     newOrder = Orders.objects.create(user_id=request.user.id, 
                                      order_date=datetime.date.today(), total_amount=grand_total, applied_discount=actual_discount)
     newOrder.save()
@@ -194,7 +198,7 @@ def order_confirmation(request, o_id):
 
     order_id = o_id
 
-    order = Orders.objects.filter(order_id=order_id)
+    order = Orders.objects.get(order_id=order_id)
     order_items = OrderItems.objects.filter(order_id=order_id) # after billy finishes checkout
     games = []
     for game in order_items:
@@ -205,7 +209,14 @@ def order_confirmation(request, o_id):
     for item in order_items:
         subtotal += item.item_price * item.quantity 
 
-    grand_total = '%.2f'%(float(subtotal) * float(1.0825))
+    print(order.applied_discount)
+
+    try:
+        print('yes')
+        grand_total = '%.2f'%(float(subtotal) * float(1.0825) * (1 - float(order.applied_discount)))
+    except:
+        print('ew')   
+        grand_total = '%.2f'%(float(subtotal) * float(1.0825))
     
     context = {
         'order_id' : order_id,
