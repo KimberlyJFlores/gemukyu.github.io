@@ -12,8 +12,8 @@ class Games(models.Model):
     developer = models.CharField(max_length=255, default="placeholder")
     dev_website = models.CharField(max_length=500, default="placeholder")
     discount = models.DecimalField(decimal_places=3, max_digits=5, default=0)
-    small_pic = models.CharField(max_length=200, default="/static/images/GimukyuHomeIcon.png")
-    big_pic = models.CharField(max_length=200, default="/static/images/GimukyuHomeIcon.png")
+    small_pic = models.CharField(max_length=200, default="GemukyuHomeIcon.png")
+    big_pic = models.CharField(max_length=200, default="GemukyuHomeIcon.png")
 
 class Cart(models.Model):
     cart_id = models.AutoField(primary_key=True)
