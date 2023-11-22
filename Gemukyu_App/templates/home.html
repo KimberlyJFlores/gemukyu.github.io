@@ -40,7 +40,7 @@
     <line></line>
     <div class="gamescroller">
         {% for game in games %}
-        {% if game.game_id|divisibleby:2 %}
+        {% if game.game_id == 192 or game.game_id == 116 or game.game_id == 188 or game.game_id == 194 or game.game_id == 197 or game.game_id == 189 %}
         <form action="{% url 'game_page' %}" method="POST" name="game_id" value="{{ game.game_id }}">
             {% csrf_token %}
             <a href="game_page">
