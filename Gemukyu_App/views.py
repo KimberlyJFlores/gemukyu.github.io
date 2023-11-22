@@ -36,8 +36,10 @@ def home(request):
 
     gameFilter = GamesFilter(request.GET, queryset=Games.objects.all())
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
-
-    context = {'games': games, 'cart': carts, 'numCartItems': numCartItems, 'gameFilter': gameFilter}
+    if numCartItems is None or numCartItems == "":
+        numCartItems = 0
+    context = {'games': games, 'cart': carts, 'numCartItems': numCartItems, 'gameFilter': gameFilter,
+               }
     return render(request,'home.html', context)
 
 def checkout(request):
