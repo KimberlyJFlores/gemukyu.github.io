@@ -23,7 +23,7 @@ class GamesListView(SingleTableMixin, FilterView):
     model = Games
     template_name = 'gamelist.html'
     filterset_class = GamesFilter
-    
+
 def game_list(request):
     games = Games.objects.all()
     for game in games:
