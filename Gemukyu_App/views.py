@@ -71,20 +71,23 @@ def checkout(request):
     }
     return render(request,'checkout.html', context)
 
-def applyDiscount(request, discount_code):
-
-    return redirect('checkout')
-
 def purchaseCart(request):
     cart = Cart.objects.filter(user_id=request.user.id)
     subtotal = sum(item.game_id.price for item in cart)
     sales_tax = '%.2f'%(float(0.0825) * float(subtotal))
     grand_total = '%.2f'%(float(subtotal) + float(sales_tax))
 
-    #discounted_total = grand_total * cart.applied_discount
+    if request.method == 'POST':
+        check_discount = request.POST.get('discountCode')
+        if check_discount is not None or check_discount != "":
+            try:
+                discount_code = discount_codes.objects.get(discount_name=check_discount)
+                actual_discount = discount_code.discount_value
+            except:
+                actual_discount = 0
 
     newOrder = Orders.objects.create(user_id=request.user.id, 
-                                     order_date=datetime.date.today(), total_amount=grand_total)
+                                     order_date=datetime.date.today(), total_amount=grand_total, applied_discount=actual_discount)
     newOrder.save()
 
     for cartItem in cart:
