@@ -25,7 +25,9 @@ def home(request):
     numCartItems = Cart.objects.filter(user_id=request.user.id).count()
     if numCartItems is None or numCartItems == "":
         numCartItems = 0
-    return render(request,'home.html', {'games': games, 'cart': carts, 'numCartItems': numCartItems})
+    context = {'games': games, 'cart': carts, 'numCartItems': numCartItems, 'gameFilter': gameFilter,
+               }
+    return render(request,'home.html', context)
 
 def checkout(request):
     cart = Cart.objects.filter(user_id=request.user.id)
