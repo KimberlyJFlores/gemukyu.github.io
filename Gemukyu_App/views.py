@@ -92,10 +92,12 @@ def purchaseCart(request):
     newOrder.save()
 
     for cartItem in cart:
+        cartItem.game_id.discount = cartItem.game_id.discount - 1
         newOrderItem = OrderItems.objects.create(order_id=newOrder.order_id,
                                           game_id=cartItem.game_id.game_id, quantity=1, 
                                           item_price=cartItem.game_id.price)
         newOrderItem.save()
+        cartItem.game_id.save()
         cartItem.delete()
 
     return redirect('order_confirmation', o_id=newOrder.order_id)
