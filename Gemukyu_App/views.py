@@ -70,6 +70,22 @@ def checkout(request):
     }
     return render(request,'checkout.html', context)
 
+def applyDiscount(request, discount_code):
+
+    return redirect('checkout')
+
+def purchaseCart(request):
+    cart = Cart.objects.filter(user_id=request.user.id)
+    subtotal = sum(item.game_id.price for item in cart)
+    sales_tax = '%.2f'%(float(0.0825) * float(subtotal))
+    grand_total = '%.2f'%(float(subtotal) + float(sales_tax))
+    discounted_total = grand_total * cart.applied_discount
+
+    
+
+
+    return redirect('order_confirmation')
+
 @login_required(login_url='login_user')
 def shoppingCart(request):
     cart = Cart.objects.filter(user_id=request.user.id)

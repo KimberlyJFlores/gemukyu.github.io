@@ -10,7 +10,7 @@
 
 
 <div class="formcontainer">
-	<form action="{% url 'checkout' %}" method="POST" class="form-horizontal">
+	<form action="{% url 'purchaseCart' %}" method="POST" class="form-horizontal">
 		{% csrf_token%}
 			<div class="col-xs-8 col-xs-offset-4">
 				<h2 style="text-align:center;">PAYMENT DETAILS</h2>
