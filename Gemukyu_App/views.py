@@ -76,7 +76,7 @@ def purchaseCart(request):
     subtotal = sum(item.game_id.price for item in cart)
     sales_tax = '%.2f'%(float(0.0825) * float(subtotal))
     grand_total = '%.2f'%(float(subtotal) + float(sales_tax))
-
+    actual_discount = 0
     if request.method == 'POST':
         check_discount = request.POST.get('discountCode')
         if check_discount is not None or check_discount != "":
