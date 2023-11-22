@@ -43,7 +43,6 @@ def home(request):
     return render(request,'home.html', context)
 
 def checkout(request):
-    #logging.warning("OH NOOOO")
     cart = Cart.objects.filter(user_id=request.user.id)
     numCartItems = cart.count()
     if numCartItems is None or numCartItems == "":
@@ -72,7 +71,6 @@ def checkout(request):
     return render(request,'checkout.html', context)
 
 def purchaseCart(request):
-    #logging.warning("oh ok")
     cart = Cart.objects.filter(user_id=request.user.id)
     subtotal = sum(item.game_id.price for item in cart)
     sales_tax = '%.2f'%(float(0.0825) * float(subtotal))
